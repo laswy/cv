@@ -184,7 +184,7 @@ body{
   border-left:3px solid var(--p1);border-radius:11px;
   padding:13px 15px;margin-bottom:16px;
   font-size:12.5px;color:var(--sub);line-height:1.75;
-  transition:background .25s;
+  text-align:justify;transition:background .25s;
 }
 .sumbox strong{color:var(--text)}
 
@@ -455,8 +455,11 @@ body{
 
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:768px){
-  .hero{grid-template-columns:1fr;text-align:center;padding:24px 18px}
+  .hero{grid-template-columns:1fr;padding:24px 18px}
+  .hero h1,.hero .sub,.hero .sep,.hero .htag{text-align:center}
+  .sumbox{text-align:left}
   .crow{grid-template-columns:1fr}
+  .ci{text-align:left}
   .stats{grid-template-columns:1fr 1fr}
   .col2,.col4060{grid-template-columns:1fr}
   .tool-grid{grid-template-columns:1fr 1fr}
@@ -834,6 +837,37 @@ body{
   <p style="margin-top:5px;opacity:.5">Để xuất PDF: nhấn "Xuất PDF" hoặc Ctrl+P → chọn "Save as PDF"</p>
 </div>
 
+<!-- ═══ AGE COUNTER (no-print) ═══ -->
+<div id="agectr" style="
+  margin:18px auto 0;max-width:680px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:20px 24px;text-align:center;
+  transition:background .25s,border-color .25s;
+">
+  <div style="font-size:11px;color:var(--muted);margin-bottom:10px;letter-spacing:.5px;text-transform:uppercase;font-weight:600">
+    🎂 Tuổi thực tính từ 25/09/1989
+  </div>
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+    <div class="ac-unit"><div class="ac-val" id="ac-y">0</div><div class="ac-lbl">Năm</div></div>
+    <div class="ac-sep">·</div>
+    <div class="ac-unit"><div class="ac-val" id="ac-d">000</div><div class="ac-lbl">Ngày</div></div>
+    <div class="ac-sep">·</div>
+    <div class="ac-unit"><div class="ac-val" id="ac-h">00</div><div class="ac-lbl">Giờ</div></div>
+    <div class="ac-sep">·</div>
+    <div class="ac-unit"><div class="ac-val" id="ac-m">00</div><div class="ac-lbl">Phút</div></div>
+    <div class="ac-sep">·</div>
+    <div class="ac-unit"><div class="ac-val ac-sec" id="ac-s">00</div><div class="ac-lbl">Giây</div></div>
+  </div>
+</div>
+<style>
+  .ac-unit{text-align:center;min-width:52px}
+  .ac-val{font-size:26px;font-weight:800;color:var(--p1);line-height:1;font-variant-numeric:tabular-nums}
+  .ac-sec{color:var(--a1)}
+  .ac-lbl{font-size:10px;color:var(--muted);margin-top:3px;font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+  .ac-sep{font-size:22px;color:var(--border);align-self:center;font-weight:300}
+  @media print{#agectr{display:none!important}}
+</style>
+
 </div><!-- .page -->
 
 <script>
@@ -908,6 +942,33 @@ function animateBars() {
 // Init theme
 const saved = (() => { try { return localStorage.getItem('cv-theme'); } catch(e) { return null; } })();
 setTheme(saved || 'light');
+
+// Age counter — birthday 25 Sep 1989 00:00:00
+(function() {
+  const DOB = new Date(1989, 8, 25, 0, 0, 0); // month 0-indexed
+  function tick() {
+    const now = new Date();
+    let diff = now - DOB; // ms
+    const MS_SEC = 1000, MS_MIN = 60000, MS_HR = 3600000, MS_DAY = 86400000;
+    const MS_YR = 365.25 * MS_DAY;
+    const years = Math.floor(diff / MS_YR);
+    diff -= years * MS_YR;
+    const days  = Math.floor(diff / MS_DAY);
+    diff -= days * MS_DAY;
+    const hours = Math.floor(diff / MS_HR);
+    diff -= hours * MS_HR;
+    const mins  = Math.floor(diff / MS_MIN);
+    diff -= mins * MS_MIN;
+    const secs  = Math.floor(diff / MS_SEC);
+    document.getElementById('ac-y').textContent = years;
+    document.getElementById('ac-d').textContent = String(days).padStart(3,'0');
+    document.getElementById('ac-h').textContent = String(hours).padStart(2,'0');
+    document.getElementById('ac-m').textContent = String(mins).padStart(2,'0');
+    document.getElementById('ac-s').textContent = String(secs).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
 
 // Animate bars once visible
 const obs = new IntersectionObserver(entries => {
