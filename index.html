@@ -441,19 +441,16 @@ body{
   display:flex;align-items:center;justify-content:center;gap:5px;
 }
 
+/* ═══ PRINT DIV (screen: hidden) ═══ */
+#pcv { display: none; }
+
 /* ═══ PRINT ═══ */
 @media print {
-  .controls{display:none !important}
-  body{background:#fff !important;color:#111 !important}
-  .page{padding:0;max-width:100%}
-  .hero{background:#fff !important;border:1px solid #ccc !important;padding:20px}
-  .hero::after{display:none}
-  .card{background:#fff !important;border:1px solid #ccc !important;box-shadow:none !important;break-inside:avoid}
-  .stat{background:#fff !important;border:1px solid #ccc !important}
-  .surface,.surface *{background:#f5f5f5 !important}
-  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  #lock, .page { display: none !important; }
+  #pcv { display: block !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }
-@page{margin:10mm;size:A4}
+@page { size: A4 portrait; margin: 9mm 11mm; }
 
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:768px){
@@ -915,5 +912,276 @@ const obs = new IntersectionObserver(entries => {
 document.querySelectorAll('.skills').forEach(el => obs.observe(el));
 window.addEventListener('load', () => setTimeout(animateBars, 400));
 </script>
+
+<!-- ════════════════════════════════════════════
+     PRINT-ONLY LAYOUT  –  vừa 1 trang A4
+════════════════════════════════════════════ -->
+<div id="pcv">
+<style>
+#pcv{font-family:'Be Vietnam Pro',Arial,sans-serif;font-size:8.5pt;color:#1E293B;line-height:1.55;background:#fff}
+
+/* ── Header ── */
+.ph{display:grid;grid-template-columns:auto 1fr;gap:10pt;align-items:center;border-bottom:2pt solid #4361EE;padding-bottom:7pt;margin-bottom:8pt}
+.ph-av{width:52pt;height:52pt;border-radius:50%;background:linear-gradient(135deg,#4361EE,#7B2FBE);display:flex;align-items:center;justify-content:center;font-size:24pt;flex-shrink:0}
+.ph-name{font-size:19pt;font-weight:800;color:#1E293B;letter-spacing:-.3pt;line-height:1}
+.ph-title{font-size:8.5pt;color:#4361EE;font-weight:700;margin:2pt 0 3pt}
+.ph-row{display:flex;flex-wrap:wrap;gap:10pt}
+.ph-c{display:flex;align-items:center;gap:2.5pt;font-size:7.5pt;color:#475569}
+.ph-c b{color:#1E293B;font-weight:600}
+
+/* ── Body grid ── */
+.pb{display:grid;grid-template-columns:36% 64%;gap:11pt}
+
+/* ── Section ── */
+.ps{margin-bottom:8pt}
+.ps-h{font-size:6.5pt;font-weight:800;text-transform:uppercase;letter-spacing:.8pt;color:#4361EE;border-bottom:1pt solid #E2E8F0;padding-bottom:2pt;margin-bottom:5pt}
+
+/* ── Skill bars ── */
+.psk{margin-bottom:4pt}
+.psk-top{display:flex;justify-content:space-between;margin-bottom:1.5pt}
+.psk-n{font-size:7.5pt;font-weight:600;color:#1E293B}
+.psk-p{font-size:7pt;color:#94A3B8}
+.psk-bar{height:4pt;background:#E8EEF6;border-radius:2pt}
+.psk-f{height:100%;border-radius:2pt}
+
+/* ── Experience ── */
+.pe{padding-bottom:6pt;margin-bottom:6pt;border-bottom:1pt solid #F1F5F9}
+.pe:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+.pe-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1pt}
+.pe-title{font-size:8.5pt;font-weight:800;color:#1E293B}
+.pe-dt{font-size:7pt;font-weight:700;color:#64748B;white-space:nowrap}
+.pe-co{font-size:7.5pt;color:#4361EE;font-weight:600;margin-bottom:2pt}
+.pe-desc{font-size:7.5pt;color:#475569;line-height:1.5}
+.pe-tags{display:flex;flex-wrap:wrap;gap:2.5pt;margin-top:2.5pt}
+.pe-tag{font-size:6.5pt;padding:1pt 4pt;background:#EEF2FA;color:#4361EE;border-radius:2pt;font-weight:600}
+
+/* ── Education ── */
+.pedu-n{font-size:8pt;font-weight:800;color:#1E293B;margin-bottom:1pt}
+.pedu-s{font-size:7.5pt;color:#4361EE;font-weight:600}
+.pedu-row{display:flex;justify-content:space-between;align-items:baseline}
+.pedu-yr{font-size:7pt;color:#94A3B8}
+
+/* ── Cert ── */
+.pcert{display:flex;align-items:center;gap:4pt;padding:2.5pt 0;border-bottom:1pt solid #F8FAFC}
+.pcert:last-child{border-bottom:none}
+.pcert-dot{width:6pt;height:6pt;border-radius:50%;flex-shrink:0}
+.dot-ok{background:#10B981}
+.dot-plan{background:#F59E0B}
+.pcert-info{flex:1}
+.pcert-n{font-size:7.5pt;font-weight:700;color:#1E293B}
+.pcert-org{font-size:6.5pt;color:#94A3B8}
+.pcert-yr{font-size:7pt;font-weight:700;white-space:nowrap}
+.yr-ok{color:#10B981}
+.yr-plan{color:#F59E0B}
+
+/* ── Language ── */
+.plang{display:flex;align-items:center;gap:5pt;padding:2pt 0}
+.plang-flag{font-size:9pt}
+.plang-n{font-size:7.5pt;font-weight:700;flex:1}
+.plang-l{font-size:7pt;color:#94A3B8}
+.pdots{display:flex;gap:2pt}
+.pd{width:5.5pt;height:5.5pt;border-radius:50%;background:#E2E8F0}
+.pd.on{background:#4361EE}
+
+/* ── Footer ── */
+.pfoot{margin-top:7pt;border-top:1pt solid #E2E8F0;padding-top:4pt;display:flex;justify-content:space-between;font-size:6.5pt;color:#CBD5E1}
+</style>
+
+<!-- HEADER -->
+<div class="ph">
+  <div class="ph-av">👷</div>
+  <div>
+    <div class="ph-name">TRẦN MINH ANH</div>
+    <div class="ph-title">Phụ trách ISO 9001 / 14001 / IATF 16949 · Trưởng ca Sản xuất · Cty TNHH SX Sanwa Việt Nam</div>
+    <div class="ph-row">
+      <span class="ph-c">📅 <b>Sinh 1989</b></span>
+      <span class="ph-c">📍 <b>Bắc Ninh</b></span>
+      <span class="ph-c">📱 <b>0989.26.08.89</b></span>
+      <span class="ph-c">📧 <b>anhtm@outlook.com</b></span>
+      <span class="ph-c">🎓 <b>Kỹ sư Kỹ thuật Cơ khí</b> – ĐH Kỹ thuật CN Thái Nguyên (2007–2012)</span>
+    </div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="pb">
+
+  <!-- ── LEFT COLUMN ── -->
+  <div>
+    <!-- Skills -->
+    <div class="ps">
+      <div class="ps-h">⚡ Kỹ năng chuyên môn</div>
+      <div class="psk">
+        <div class="psk-top"><span class="psk-n">ISO 9001 / IATF 16949</span><span class="psk-p">92%</span></div>
+        <div class="psk-bar"><div class="psk-f" style="width:92%;background:linear-gradient(90deg,#4361EE,#7B2FBE)"></div></div>
+      </div>
+      <div class="psk">
+        <div class="psk-top"><span class="psk-n">Xây dựng hệ thống QMS</span><span class="psk-p">88%</span></div>
+        <div class="psk-bar"><div class="psk-f" style="width:88%;background:linear-gradient(90deg,#10B981,#0EA5E9)"></div></div>
+      </div>
+      <div class="psk">
+        <div class="psk-top"><span class="psk-n">Đánh giá nội bộ (Audit)</span><span class="psk-p">87%</span></div>
+        <div class="psk-bar"><div class="psk-f" style="width:87%;background:linear-gradient(90deg,#F59E0B,#F97316)"></div></div>
+      </div>
+      <div class="psk">
+        <div class="psk-top"><span class="psk-n">Kiểm soát CL (SPC/FMEA)</span><span class="psk-p">80%</span></div>
+        <div class="psk-bar"><div class="psk-f" style="width:80%;background:linear-gradient(90deg,#EF4444,#F97316)"></div></div>
+      </div>
+      <div class="psk">
+        <div class="psk-top"><span class="psk-n">Lean / 5S / Kaizen</span><span class="psk-p">83%</span></div>
+        <div class="psk-bar"><div class="psk-f" style="width:83%;background:linear-gradient(90deg,#4361EE,#7B2FBE)"></div></div>
+      </div>
+      <div class="psk">
+        <div class="psk-top"><span class="psk-n">Quản lý SX (OEE, Takt time)</span><span class="psk-p">85%</span></div>
+        <div class="psk-bar"><div class="psk-f" style="width:85%;background:linear-gradient(90deg,#10B981,#0EA5E9)"></div></div>
+      </div>
+      <div class="psk">
+        <div class="psk-top"><span class="psk-n">ERP / SAP / Excel nâng cao</span><span class="psk-p">75%</span></div>
+        <div class="psk-bar"><div class="psk-f" style="width:75%;background:linear-gradient(90deg,#F59E0B,#F97316)"></div></div>
+      </div>
+      <div class="psk">
+        <div class="psk-top"><span class="psk-n">AutoCAD 2D (Bản vẽ KT)</span><span class="psk-p">70%</span></div>
+        <div class="psk-bar"><div class="psk-f" style="width:70%;background:linear-gradient(90deg,#EF4444,#F97316)"></div></div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="ps">
+      <div class="ps-h">🏆 Chứng chỉ</div>
+      <div class="pcert">
+        <div class="pcert-dot dot-ok"></div>
+        <div class="pcert-info"><div class="pcert-n">IATF 16949:2016 Internal Auditor</div><div class="pcert-org">Sanwa Việt Nam</div></div>
+        <span class="pcert-yr yr-ok">04/2026</span>
+      </div>
+      <div class="pcert">
+        <div class="pcert-dot dot-ok"></div>
+        <div class="pcert-info"><div class="pcert-n">ISO 9001:2015 Internal Auditor</div><div class="pcert-org">Sanwa Việt Nam</div></div>
+        <span class="pcert-yr yr-ok">04/2026</span>
+      </div>
+      <div class="pcert">
+        <div class="pcert-dot dot-ok"></div>
+        <div class="pcert-info"><div class="pcert-n">ISO 14001:2015 Internal Auditor</div><div class="pcert-org">Sanwa Việt Nam</div></div>
+        <span class="pcert-yr yr-ok">04/2026</span>
+      </div>
+      <div class="pcert">
+        <div class="pcert-dot dot-plan"></div>
+        <div class="pcert-info"><div class="pcert-n">IATF 6 Core Tools Certificate</div><div class="pcert-org">APQP · PPAP · FMEA · SPC · MSA · CP</div></div>
+        <span class="pcert-yr yr-plan">08/2026 DK</span>
+      </div>
+      <div class="pcert">
+        <div class="pcert-dot dot-plan"></div>
+        <div class="pcert-info"><div class="pcert-n">ISO 27001 Internal Auditor</div><div class="pcert-org">Bảo mật thông tin</div></div>
+        <span class="pcert-yr yr-plan">10/2026 DK</span>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div class="ps">
+      <div class="ps-h">🌍 Ngôn ngữ</div>
+      <div class="plang">
+        <span class="plang-flag">🇻🇳</span>
+        <span class="plang-n">Tiếng Việt</span>
+        <span class="plang-l">Bản ngữ</span>
+        <div class="pdots"><div class="pd on"></div><div class="pd on"></div><div class="pd on"></div><div class="pd on"></div><div class="pd on"></div></div>
+      </div>
+      <div class="plang">
+        <span class="plang-flag">🇺🇸</span>
+        <span class="plang-n">English</span>
+        <span class="plang-l">Đọc tài liệu KT (B1)</span>
+        <div class="pdots"><div class="pd on"></div><div class="pd on"></div><div class="pd on"></div><div class="pd"></div><div class="pd"></div></div>
+      </div>
+      <div class="plang">
+        <span class="plang-flag">🇯🇵</span>
+        <span class="plang-n">日本語</span>
+        <span class="plang-l">Giao tiếp cơ bản</span>
+        <div class="pdots"><div class="pd on"></div><div class="pd on"></div><div class="pd"></div><div class="pd"></div><div class="pd"></div></div>
+      </div>
+    </div>
+
+    <!-- Interests (compact) -->
+    <div class="ps">
+      <div class="ps-h">🎯 Sở thích</div>
+      <div style="font-size:7.5pt;color:#475569;line-height:1.7">
+        📖 Truyện tiên hiệp &nbsp;·&nbsp; 🔍 Mày mò cái mới<br>
+        🤖 Ứng dụng AI vào công việc &nbsp;·&nbsp; 📸 Chụp ảnh &nbsp;·&nbsp; 😴 Thích ngủ
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RIGHT COLUMN ── -->
+  <div>
+    <!-- Experience -->
+    <div class="ps">
+      <div class="ps-h">💼 Kinh nghiệm làm việc</div>
+
+      <div class="pe">
+        <div class="pe-row">
+          <span class="pe-title">Phụ trách ISO 9001 / 14001 / IATF 16949</span>
+          <span class="pe-dt">04/2026 – Nay</span>
+        </div>
+        <div class="pe-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div>
+        <div class="pe-desc">Chuyên trách xây dựng và duy trì hệ thống quản lý tích hợp (QMS). Lập kế hoạch và thực hiện đánh giá nội bộ, xử lý NCR, theo dõi CAPA, chuẩn bị hồ sơ phối hợp đánh giá cấp chứng nhận bên ngoài.</div>
+        <div class="pe-tags"><span class="pe-tag">ISO 9001</span><span class="pe-tag">ISO 14001</span><span class="pe-tag">IATF 16949</span><span class="pe-tag">Internal Audit</span><span class="pe-tag">CAPA/NCR</span></div>
+      </div>
+
+      <div class="pe">
+        <div class="pe-row">
+          <span class="pe-title">Trưởng ca Sản xuất</span>
+          <span class="pe-dt">01/2021 – 03/2026</span>
+        </div>
+        <div class="pe-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div>
+        <div class="pe-desc">Quản lý toàn bộ ca làm việc (dưới Trưởng phòng): tính toán &amp; lập kế hoạch sản xuất theo đơn hàng; sắp xếp nhân sự, phân công công việc; theo dõi OEE, sản lượng, chất lượng; điều chỉnh kịp thời khi lệch kế hoạch. Đào tạo công nhân mới, duy trì 5S.</div>
+        <div class="pe-tags"><span class="pe-tag">Kế hoạch SX</span><span class="pe-tag">Quản lý nhân sự</span><span class="pe-tag">OEE / KPI</span><span class="pe-tag">5S / Kaizen</span></div>
+      </div>
+
+      <div class="pe">
+        <div class="pe-row">
+          <span class="pe-title">Nhân viên Sản xuất</span>
+          <span class="pe-dt">09/2014 – 12/2020</span>
+        </div>
+        <div class="pe-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div>
+        <div class="pe-desc">Khởi đầu từ nhân viên sản xuất trong môi trường Nhật Bản. Thành thạo quy trình, kỷ luật 5S và tiêu chuẩn chất lượng Sanwa. Được đề bạt Trưởng ca sau 6+ năm.</div>
+        <div class="pe-tags"><span class="pe-tag">Sản xuất Nhật Bản</span><span class="pe-tag">5S</span><span class="pe-tag">QC</span></div>
+      </div>
+
+      <div class="pe">
+        <div class="pe-row">
+          <span class="pe-title">Kỹ sư An toàn – Kỹ thuật</span>
+          <span class="pe-dt">10/2012 – 09/2013</span>
+        </div>
+        <div class="pe-co">⛏️ Cty TNHH MTV Kim loại màu Bắc Kạn</div>
+        <div class="pe-desc">Phụ trách phòng Kỹ thuật an toàn sau tốt nghiệp: giám sát ATLĐ, kiểm tra thiết bị bảo hộ, lập báo cáo an toàn định kỳ trong môi trường luyện kim màu.</div>
+        <div class="pe-tags"><span class="pe-tag">An toàn lao động</span><span class="pe-tag">Luyện kim màu</span></div>
+      </div>
+    </div>
+
+    <!-- Career Goal -->
+    <div class="ps">
+      <div class="ps-h">🚀 Mục tiêu nghề nghiệp</div>
+      <div style="font-size:7.5pt;color:#475569;line-height:1.6">
+        Hướng đến vị trí <b style="color:#1E293B">QMS Manager</b> hoặc <b style="color:#1E293B">Production Manager</b> tại doanh nghiệp FDI cơ khí / điện tử tại KCN <b style="color:#1E293B">Bắc Ninh – Bắc Giang</b>.
+        Lộ trình 2026: hoàn thành <b style="color:#1E293B">IATF 6 Core Tools (08/2026)</b> và <b style="color:#1E293B">ISO 27001 (10/2026)</b>. Tích cực ứng dụng <b style="color:#1E293B">AI</b> vào quản lý tài liệu và phân tích dữ liệu chất lượng.
+      </div>
+      <div style="margin-top:5pt">
+        <div style="font-size:6.5pt;font-weight:800;text-transform:uppercase;letter-spacing:.6pt;color:#4361EE;margin-bottom:3pt">💡 Điểm mạnh</div>
+        <div style="font-size:7.5pt;color:#475569;line-height:1.7">
+          ✓ &nbsp;11+ năm gắn bó Sanwa – am hiểu sâu văn hóa SX Nhật Bản<br>
+          ✓ &nbsp;Hiểu cả vận hành SX thực tế lẫn hệ thống ISO/IATF<br>
+          ✓ &nbsp;Nền tảng kỹ thuật vững từ ĐH Kỹ thuật Công nghiệp Thái Nguyên
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- .pb -->
+
+<!-- FOOTER -->
+<div class="pfoot">
+  <span>Trần Minh Anh · Trưởng ca SX / ISO&IATF Specialist · Sanwa Việt Nam</span>
+  <span>Cập nhật 05/2026</span>
+</div>
+
+</div><!-- #pcv -->
+
 </body>
 </html>
