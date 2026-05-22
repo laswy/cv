@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark">
+<html lang="vi" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -546,11 +546,10 @@ body{
 </div>
 
 <!-- ═══ STATS ═══ -->
-<div class="stats">
+<div class="stats" style="grid-template-columns:repeat(3,1fr)">
   <div class="stat"><span class="si2">⏱️</span><span class="sn">13+</span><span class="sl">Năm kinh nghiệm</span></div>
   <div class="stat"><span class="si2">🏭</span><span class="sn">11+</span><span class="sl">Năm tại Sanwa VN</span></div>
-  <div class="stat"><span class="si2">📋</span><span class="sn">5</span><span class="sl">Năm Giám sát SX</span></div>
-  <div class="stat"><span class="si2">🔒</span><span class="sn">12n9t</span><span class="sl">BHXH – 0 chậm đóng</span></div>
+  <div class="stat"><span class="si2">📋</span><span class="sn">5</span><span class="sl">Năm Trưởng ca SX</span></div>
 </div>
 
 <!-- ═══ SKILLS + EXPERIENCE ═══ -->
@@ -587,11 +586,11 @@ body{
         <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
         <div>
           <div class="tt">
-            <div><div class="t-title">Giám sát Sản xuất (Ca trưởng)</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
+            <div><div class="t-title">Trưởng ca Sản xuất</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
             <span class="t-dt">01/2021 – 03/2026</span>
           </div>
-          <p class="t-desc">Giám sát trực tiếp ca sản xuất tại nhà máy Nhật Bản. Điều hành đội công nhân, theo dõi OEE, sản lượng và chất lượng hằng ngày. Triển khai 5S và Kaizen, kiểm soát an toàn lao động và đào tạo nhân viên mới.</p>
-          <div class="ttags"><span class="ttag">Ca trưởng</span><span class="ttag">5S / Kaizen</span><span class="ttag">OEE</span><span class="ttag">An toàn lao động</span><span class="ttag">Đào tạo NV</span></div>
+          <p class="t-desc">Vị trí Trưởng ca sản xuất – cấp dưới Trưởng phòng, quản lý trực tiếp toàn bộ hoạt động ca làm việc: <strong>tính toán và lập kế hoạch sản xuất</strong> theo đơn hàng; <strong>sắp xếp nhân sự</strong>, phân công công việc phù hợp năng lực từng người; <strong>theo dõi các chỉ số</strong> sản lượng, chất lượng, OEE theo ca; <strong>điều chỉnh</strong> kịp thời khi phát sinh sự cố hoặc lệch kế hoạch. Đào tạo nhân viên mới và duy trì kỷ luật 5S.</p>
+          <div class="ttags"><span class="ttag">Trưởng ca</span><span class="ttag">Kế hoạch SX</span><span class="ttag">Quản lý nhân sự</span><span class="ttag">Phân công CV</span><span class="ttag">KPI / OEE</span><span class="ttag">5S</span></div>
         </div>
       </div>
       <div class="ti">
@@ -693,7 +692,7 @@ body{
     <div class="edu">
       <div class="edu-ico">🏛️</div>
       <div class="edu-info">
-        <h3>Kỹ thuật Công nghiệp – Cơ khí</h3>
+        <h3>Kỹ sư Kỹ thuật Cơ khí</h3>
         <div class="edu-school">ĐH Kỹ thuật Công nghiệp Thái Nguyên (TNUT)</div>
         <div class="edu-yr">2007 – 2012</div>
       </div>
@@ -907,7 +906,7 @@ function animateBars() {
 
 // Init theme
 const saved = (() => { try { return localStorage.getItem('cv-theme'); } catch(e) { return null; } })();
-setTheme(saved || 'dark');
+setTheme(saved || 'light');
 
 // Animate bars once visible
 const obs = new IntersectionObserver(entries => {
