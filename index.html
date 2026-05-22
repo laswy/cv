@@ -984,7 +984,9 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 ════════════════════════════════════════════ -->
 <div id="pcv">
 <style>
-#pcv{font-family:'Be Vietnam Pro',Arial,sans-serif;font-size:8pt;color:#1E293B;line-height:1.55;background:#fff;width:100%}
+#pcv{font-family:'Be Vietnam Pro',Arial,sans-serif;font-size:8pt;color:#1E293B;line-height:1.55;background:#fff;
+  width:100%;box-sizing:border-box;overflow:hidden;
+  display:flex;flex-direction:column;min-height:281mm}
 #pcv a{text-decoration:none;color:inherit}
 
 /* ── Header ── */
@@ -997,10 +999,10 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 .ph-c b{color:#1E293B;font-weight:600}
 
 /* ── Body grid ── */
-.pb{display:grid;grid-template-columns:36% 64%;gap:8pt}
+.pb{display:grid;grid-template-columns:35% 1fr;gap:8pt;flex:1;align-content:start}
 
 /* ── Section ── */
-.ps{margin-bottom:6pt}
+.ps{margin-bottom:8pt}
 .ps-h{font-size:6pt;font-weight:800;text-transform:uppercase;letter-spacing:.8pt;color:#4361EE;border-bottom:1pt solid #E2E8F0;padding-bottom:2pt;margin-bottom:4pt}
 
 /* ── Skill bars ── */
@@ -1012,7 +1014,7 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 .psk-f{height:100%;border-radius:2pt}
 
 /* ── Experience ── */
-.pe{padding-bottom:5pt;margin-bottom:5pt;border-bottom:1pt solid #F1F5F9}
+.pe{padding-bottom:7pt;margin-bottom:7pt;border-bottom:1pt solid #F1F5F9}
 .pe:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
 .pe-row{display:flex;justify-content:space-between;align-items:baseline;gap:4pt;margin-bottom:1pt}
 .pe-title{font-size:8pt;font-weight:800;color:#1E293B;flex:1;min-width:0}
