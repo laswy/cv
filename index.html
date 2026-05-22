@@ -447,11 +447,20 @@ body{
 
 /* ═══ PRINT ═══ */
 @media print {
-  #lock, .page { display: none !important; }
-  #pcv { display: block !important; }
+  html, body { margin: 0 !important; padding: 0 !important; width: 210mm !important; height: 297mm !important; }
+  #lock, .page, #agectr { display: none !important; }
+  #pcv {
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important; left: 0 !important;
+    width: 210mm !important; height: 297mm !important;
+    margin: 0 !important; padding: 8mm 11mm !important;
+    box-sizing: border-box !important; overflow: hidden !important;
+    page-break-after: avoid !important;
+  }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }
-@page { size: A4 portrait; margin: 7mm 10mm; }
+@page { size: A4 portrait; margin: 0; }
 
 /* ═══ RESPONSIVE ═══ */
 @media(max-width:768px){
@@ -983,20 +992,21 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 ════════════════════════════════════════════ -->
 <div id="pcv">
 <style>
-#pcv{font-family:'Be Vietnam Pro',Arial,sans-serif;font-size:8pt;color:#1E293B;line-height:1.45;background:#fff}
+#pcv{font-family:'Be Vietnam Pro',Arial,sans-serif;font-size:8pt;color:#1E293B;line-height:1.45;background:#fff;
+     width:210mm;height:297mm;box-sizing:border-box;padding:8mm 11mm;overflow:hidden}
 #pcv a{text-decoration:none;color:inherit}
 
 /* ── Header ── */
 .ph{display:grid;grid-template-columns:auto 1fr;gap:8pt;align-items:center;border-bottom:2pt solid #4361EE;padding-bottom:5pt;margin-bottom:6pt}
 .ph-av{width:44pt;height:44pt;border-radius:50%;background:linear-gradient(135deg,#4361EE,#7B2FBE);display:flex;align-items:center;justify-content:center;font-size:20pt;flex-shrink:0}
-.ph-name{font-size:17pt;font-weight:800;color:#1E293B;letter-spacing:-.3pt;line-height:1}
-.ph-title{font-size:7.5pt;color:#4361EE;font-weight:700;margin:2pt 0 2pt}
-.ph-row{display:flex;flex-wrap:wrap;gap:7pt}
-.ph-c{display:flex;align-items:center;gap:2pt;font-size:7pt;color:#475569}
+.ph-name{font-size:15pt;font-weight:800;color:#1E293B;letter-spacing:-.3pt;line-height:1}
+.ph-title{font-size:7pt;color:#4361EE;font-weight:700;margin:1.5pt 0 2pt}
+.ph-row{display:flex;flex-wrap:wrap;gap:6pt}
+.ph-c{display:flex;align-items:center;gap:2pt;font-size:6.5pt;color:#475569}
 .ph-c b{color:#1E293B;font-weight:600}
 
 /* ── Body grid ── */
-.pb{display:grid;grid-template-columns:36% 64%;gap:10pt}
+.pb{display:grid;grid-template-columns:36% 64%;gap:8pt}
 
 /* ── Section ── */
 .ps{margin-bottom:6pt}
