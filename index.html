@@ -595,9 +595,11 @@ a.aic{cursor:pointer}
     <div class="wsizes">
       <button class="ws" onclick="setWSize('stats','S')">S</button>
       <button class="ws" onclick="setWSize('stats','M')">M</button>
-      <button class="ws  active" onclick="setWSize('stats','L')">L</button>
+      <button class="ws active" onclick="setWSize('stats','L')">L</button>
     </div>
   </div>
+  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card" style="padding:18px 22px">
   <div class="stats" style="margin-bottom:0">
     <div class="stat"><span class="si2">⏱️</span><span class="sn">13+</span><span class="sl">Năm kinh nghiệm</span></div>
@@ -613,10 +615,12 @@ a.aic{cursor:pointer}
     <span class="wlabel">⚡ Kỹ năng</span>
     <div class="wsizes">
       <button class="ws" onclick="setWSize('skills','S')">S</button>
-      <button class="ws  active" onclick="setWSize('skills','M')">M</button>
+      <button class="ws active" onclick="setWSize('skills','M')">M</button>
       <button class="ws" onclick="setWSize('skills','L')">L</button>
     </div>
   </div>
+  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(123,114,255,.15)">⚡</div><h2>Kỹ năng chuyên môn</h2></div>
     <div class="skills">
@@ -638,10 +642,12 @@ a.aic{cursor:pointer}
     <span class="wlabel">🧠 Kỹ năng mềm</span>
     <div class="wsizes">
       <button class="ws" onclick="setWSize('softskills','S')">S</button>
-      <button class="ws  active" onclick="setWSize('softskills','M')">M</button>
+      <button class="ws active" onclick="setWSize('softskills','M')">M</button>
       <button class="ws" onclick="setWSize('softskills','L')">L</button>
     </div>
   </div>
+  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(255,208,96,.12)">🧠</div><h2>Kỹ năng mềm</h2></div>
     <div class="radials">
@@ -712,13 +718,15 @@ a.aic{cursor:pointer}
 <div class="widget" data-id="edu" data-size="M">
   <div class="wctrl">
     <span class="wdrag">⠿</span>
-    <span class="wlabel">🎓 Học vấn & Chứng chỉ</span>
+    <span class="wlabel">🎓 Học vấn</span>
     <div class="wsizes">
       <button class="ws" onclick="setWSize('edu','S')">S</button>
-      <button class="ws  active" onclick="setWSize('edu','M')">M</button>
+      <button class="ws active" onclick="setWSize('edu','M')">M</button>
       <button class="ws" onclick="setWSize('edu','L')">L</button>
     </div>
   </div>
+  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(255,94,126,.1)">🎓</div><h2>Học vấn</h2></div>
     <div class="edu">
@@ -730,8 +738,23 @@ a.aic{cursor:pointer}
       </div>
       <div class="edu-gpa"><div class="gn">3.0</div><div class="gl">GPA / 4.0</div></div>
     </div>
-    <div class="hdiv"></div>
-    <div class="sh" style="margin-bottom:13px"><div class="si" style="background:rgba(255,208,96,.12)">🏆</div><h2>Chứng chỉ</h2></div>
+  </div>
+</div>
+
+<div class="widget" data-id="certs" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🏆 Chứng chỉ</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('certs','S')">S</button>
+      <button class="ws active" onclick="setWSize('certs','M')">M</button>
+      <button class="ws" onclick="setWSize('certs','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(255,208,96,.12)">🏆</div><h2>Chứng chỉ</h2></div>
     <div class="cert-list">
       <div class="cert">
         <span class="cert-ico">🎖️</span>
@@ -762,16 +785,18 @@ a.aic{cursor:pointer}
   </div>
 </div>
 
-<div class="widget" data-id="langtools" data-size="M">
+<div class="widget" data-id="lang" data-size="S">
   <div class="wctrl">
     <span class="wdrag">⠿</span>
-    <span class="wlabel">🌍 Ngôn ngữ & Công cụ</span>
+    <span class="wlabel">🌍 Ngôn ngữ</span>
     <div class="wsizes">
-      <button class="ws" onclick="setWSize('langtools','S')">S</button>
-      <button class="ws  active" onclick="setWSize('langtools','M')">M</button>
-      <button class="ws" onclick="setWSize('langtools','L')">L</button>
+      <button class="ws active" onclick="setWSize('lang','S')">S</button>
+      <button class="ws" onclick="setWSize('lang','M')">M</button>
+      <button class="ws" onclick="setWSize('lang','L')">L</button>
     </div>
   </div>
+  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(123,114,255,.12)">🌍</div><h2>Ngôn ngữ</h2></div>
     <div class="lang-row">
@@ -783,7 +808,22 @@ a.aic{cursor:pointer}
       <span class="lr-sep">·</span>
       <span class="lr-item">🇰🇷 <strong>한국어</strong> <em>Cơ bản</em></span>
     </div>
-    <div class="hdiv"></div>
+  </div>
+</div>
+
+<div class="widget" data-id="tools" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🛠️ Công cụ CL</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('tools','S')">S</button>
+      <button class="ws active" onclick="setWSize('tools','M')">M</button>
+      <button class="ws" onclick="setWSize('tools','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
     <div class="sh"><div class="si" style="background:rgba(54,245,166,.1)">🛠️</div><h2>Công cụ chất lượng & Core Tools</h2></div>
     <div class="tool-grid" style="grid-template-columns:repeat(2,1fr)">
       <div class="tc"><div class="tc-ico">📋</div><div class="tc-n">APQP</div><div class="tc-full">Advanced Product Quality Planning</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
@@ -795,9 +835,24 @@ a.aic{cursor:pointer}
       <div class="tc"><div class="tc-ico">🐟</div><div class="tc-n">8D / Fishbone</div><div class="tc-full">8D Problem Solving & Ishikawa</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
       <div class="tc"><div class="tc-ico">🗺️</div><div class="tc-n">VSM / Kaizen</div><div class="tc-full">Value Stream Mapping & Cải tiến</div><div class="stars">⭐⭐⭐⭐☆</div></div>
     </div>
-    <div class="hdiv"></div>
-    <div class="sh" style="margin-bottom:13px"><div class="si" style="background:rgba(255,94,126,.1)">🎯</div><h2>Sở thích</h2></div>
-    <div class="int-grid" style="grid-template-columns:repeat(5,1fr)">
+  </div>
+</div>
+
+<div class="widget" data-id="interests" data-size="S">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🎯 Sở thích</span>
+    <div class="wsizes">
+      <button class="ws active" onclick="setWSize('interests','S')">S</button>
+      <button class="ws" onclick="setWSize('interests','M')">M</button>
+      <button class="ws" onclick="setWSize('interests','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(255,94,126,.1)">🎯</div><h2>Sở thích</h2></div>
+    <div class="int-grid" style="grid-template-columns:repeat(2,1fr)">
       <div class="ii"><span class="ii-ico">📖</span><span class="ii-n">Tiên hiệp</span></div>
       <div class="ii"><span class="ii-ico">🔍</span><span class="ii-n">Mày mò cái mới</span></div>
       <div class="ii"><span class="ii-ico">🤖</span><span class="ii-n">AI vào công việc</span></div>
@@ -807,24 +862,41 @@ a.aic{cursor:pointer}
   </div>
 </div>
 
-<div class="widget" data-id="goal" data-size="L">
+<div class="widget" data-id="goal" data-size="M">
   <div class="wctrl">
     <span class="wdrag">⠿</span>
     <span class="wlabel">🎯 Mục tiêu</span>
     <div class="wsizes">
       <button class="ws" onclick="setWSize('goal','S')">S</button>
-      <button class="ws" onclick="setWSize('goal','M')">M</button>
-      <button class="ws  active" onclick="setWSize('goal','L')">L</button>
+      <button class="ws active" onclick="setWSize('goal','M')">M</button>
+      <button class="ws" onclick="setWSize('goal','L')">L</button>
     </div>
   </div>
+  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(54,245,166,.1)">🎯</div><h2>Mục tiêu nghề nghiệp</h2></div>
     <div class="goal">
       <div class="goal-title">🚀 Định hướng 1–2 năm tới</div>
       <p>Từ nền tảng 11 năm tại <strong>Sanwa Việt Nam</strong>, hướng đến vị trí <strong>QMS Manager</strong> hoặc <strong>Production Manager</strong> tại doanh nghiệp FDI cơ khí / điện tử tại khu công nghiệp <strong>Bắc Ninh – Bắc Giang</strong>.<br><br>Lộ trình chứng chỉ 2026: hoàn thành <strong>6 Core Tools (08/2026)</strong> và <strong>ISO 27001 Internal Auditor (10/2026)</strong>. Ứng dụng <strong>AI vào công việc</strong> để tăng hiệu quả quản lý tài liệu và phân tích dữ liệu chất lượng.</p>
     </div>
-    <div class="hdiv"></div>
-    <div class="sh" style="margin-bottom:13px"><div class="si" style="background:rgba(255,208,96,.1)">💡</div><h2>Điểm mạnh nổi bật</h2></div>
+  </div>
+</div>
+
+<div class="widget" data-id="strengths" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">💡 Điểm mạnh</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('strengths','S')">S</button>
+      <button class="ws active" onclick="setWSize('strengths','M')">M</button>
+      <button class="ws" onclick="setWSize('strengths','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(255,208,96,.1)">💡</div><h2>Điểm mạnh nổi bật</h2></div>
     <div class="str-list">
       <div class="str-item"><span class="str-check">✓</span><span class="str-text"><strong>11+ năm gắn bó Sanwa Việt Nam</strong> – am hiểu sâu văn hóa sản xuất Nhật Bản, kỷ luật công xưởng và hệ thống quản lý chất lượng nội bộ</span></div>
       <div class="str-item"><span class="str-check">✓</span><span class="str-text">Hiểu cả 2 phía: <strong>vận hành sản xuất thực tế</strong> lẫn <strong>hệ thống ISO/IATF</strong> – lợi thế ít Giám sát nào có được</span></div>
@@ -841,9 +913,11 @@ a.aic{cursor:pointer}
     <div class="wsizes">
       <button class="ws" onclick="setWSize('exp','S')">S</button>
       <button class="ws" onclick="setWSize('exp','M')">M</button>
-      <button class="ws  active" onclick="setWSize('exp','L')">L</button>
+      <button class="ws active" onclick="setWSize('exp','L')">L</button>
     </div>
   </div>
+  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(54,245,166,.12)">💼</div><h2>Kinh nghiệm làm việc</h2></div>
     <div class="tl">
@@ -1061,6 +1135,15 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 let _editMode = false;
 let _dragSrc = null;
 
+function _colsForSize(size) {
+  return size === 'S' ? 1 : size === 'L' ? 4 : 2;
+}
+
+function _applyWidgetCols(w) {
+  const cols = parseInt(w.dataset.cols) || _colsForSize(w.dataset.size || 'M');
+  w.style.gridColumn = 'span ' + cols;
+}
+
 function toggleEditMode() {
   _editMode = !_editMode;
   const grid = document.getElementById('widget-grid');
@@ -1083,27 +1166,54 @@ function setWSize(id, size) {
   const w = document.querySelector('.widget[data-id="' + id + '"]');
   if (!w) return;
   w.setAttribute('data-size', size);
+  const cols = _colsForSize(size);
+  w.dataset.cols = cols;
+  w.style.gridColumn = 'span ' + cols;
   w.querySelectorAll('.ws').forEach(b => b.classList.toggle('active', b.textContent === size));
   saveWidgets();
 }
 
 function saveWidgets() {
-  const data = [...document.querySelectorAll('#widget-grid .widget')].map(w => ({
-    id: w.dataset.id, size: w.dataset.size
-  }));
+  const data = [...document.querySelectorAll('#widget-grid .widget')].map(w => {
+    const card = w.querySelector('.card');
+    return {
+      id: w.dataset.id,
+      size: w.dataset.size,
+      cols: w.dataset.cols || null,
+      mh: w.dataset.mh || null
+    };
+  });
   try { localStorage.setItem('cv-widgets', JSON.stringify(data)); } catch(e) {}
 }
 
 function loadWidgets() {
   try {
     const data = JSON.parse(localStorage.getItem('cv-widgets') || 'null');
-    if (!data) return;
     const grid = document.getElementById('widget-grid');
+    if (!data) {
+      grid.querySelectorAll('.widget').forEach(w => _applyWidgetCols(w));
+      return;
+    }
     data.forEach(item => {
       const w = document.querySelector('.widget[data-id="' + item.id + '"]');
-      if (w) { setWSize(item.id, item.size); grid.appendChild(w); }
+      if (!w) return;
+      w.setAttribute('data-size', item.size);
+      const cols = item.cols ? parseInt(item.cols) : _colsForSize(item.size);
+      w.dataset.cols = cols;
+      w.style.gridColumn = 'span ' + cols;
+      if (item.mh) {
+        w.dataset.mh = item.mh;
+        const card = w.querySelector('.card');
+        if (card) card.style.minHeight = item.mh + 'px';
+      }
+      w.querySelectorAll('.ws').forEach(b => b.classList.toggle('active', b.textContent === item.size));
+      grid.appendChild(w);
     });
-  } catch(e) {}
+    /* apply cols for any widgets not in saved data */
+    grid.querySelectorAll('.widget').forEach(w => { if (!w.style.gridColumn) _applyWidgetCols(w); });
+  } catch(e) {
+    document.querySelectorAll('#widget-grid .widget').forEach(w => _applyWidgetCols(w));
+  }
 }
 
 (function initWidgetDrag() {
@@ -1111,6 +1221,7 @@ function loadWidgets() {
   if (!grid) return;
 
   grid.addEventListener('dragstart', e => {
+    if (e.target.closest('.wrh-r,.wrh-b')) { e.preventDefault(); return; }
     const w = e.target.closest('.widget');
     if (!w || !_editMode) { e.preventDefault(); return; }
     _dragSrc = w;
@@ -1125,6 +1236,7 @@ function loadWidgets() {
     _dragSrc = null;
   });
   grid.addEventListener('dragover', e => {
+    if (e.target.closest('.wrh-r,.wrh-b')) return;
     e.preventDefault(); e.dataTransfer.dropEffect = 'move';
     const w = e.target.closest('.widget');
     if (w && w !== _dragSrc) {
@@ -1140,11 +1252,67 @@ function loadWidgets() {
     e.preventDefault();
     const target = e.target.closest('.widget');
     if (!target || !_dragSrc || target === _dragSrc) return;
-    const widgets = [...grid.children];
+    const widgets = [...grid.children].filter(c => c.classList.contains('widget'));
     const si = widgets.indexOf(_dragSrc), ti = widgets.indexOf(target);
     grid.insertBefore(_dragSrc, si < ti ? target.nextSibling : target);
     target.classList.remove('drag-over');
     saveWidgets();
+  });
+})();
+
+(function initResizeDrag() {
+  const grid = document.getElementById('widget-grid');
+  if (!grid) return;
+
+  grid.addEventListener('mousedown', function(e) {
+    if (!_editMode) return;
+    const isRight  = !!e.target.closest('.wrh-r');
+    const isBottom = !!e.target.closest('.wrh-b');
+    if (!isRight && !isBottom) return;
+
+    e.stopPropagation();
+    e.preventDefault();
+
+    const widget = e.target.closest('.widget');
+    const card   = widget.querySelector('.card');
+
+    if (isRight) {
+      const startX    = e.clientX;
+      const startRight = widget.getBoundingClientRect().right;
+      const onMove = function(me) {
+        const gridRect = grid.getBoundingClientRect();
+        const gap = 14;
+        const colW = (gridRect.width - 3 * gap) / 4;
+        const newRight = startRight + (me.clientX - startX);
+        const newWidth = newRight - widget.getBoundingClientRect().left;
+        const newCols  = Math.max(1, Math.min(4, Math.round(newWidth / (colW + gap / 4))));
+        widget.style.gridColumn = 'span ' + newCols;
+        widget.dataset.cols = newCols;
+      };
+      const onUp = function() {
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseup', onUp);
+        saveWidgets();
+      };
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onUp);
+
+    } else {
+      const startY = e.clientY;
+      const startH = card ? card.getBoundingClientRect().height : 100;
+      const onMove = function(me) {
+        const newH = Math.max(60, startH + (me.clientY - startY));
+        if (card) card.style.minHeight = newH + 'px';
+        widget.dataset.mh = Math.round(newH);
+      };
+      const onUp = function() {
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseup', onUp);
+        saveWidgets();
+      };
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onUp);
+    }
   });
 })();
 
@@ -1230,9 +1398,6 @@ loadWidgets();
 /* ═══ WIDGET GRID SYSTEM ═══ */
 #widget-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:start;margin-bottom:0}
 .widget{position:relative;transition:opacity .2s}
-.widget[data-size="S"]{grid-column:span 1}
-.widget[data-size="M"]{grid-column:span 2}
-.widget[data-size="L"]{grid-column:span 4}
 
 /* Widget control bar */
 .wctrl{
@@ -1253,6 +1418,15 @@ loadWidgets();
 .ws.active{background:var(--p1);color:#fff;border-color:var(--p1)}
 .ws:hover:not(.active){border-color:var(--p1);color:var(--p1)}
 
+/* Resize handles */
+.wrh-r,.wrh-b{position:absolute;display:none;z-index:150}
+.wrh-r{right:-6px;top:10%;bottom:10%;width:12px;cursor:col-resize}
+.wrh-b{left:10%;right:10%;bottom:-6px;height:12px;cursor:row-resize}
+.wrh-r::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:4px;height:32px;border-radius:3px;background:var(--p1);opacity:.75}
+.wrh-b::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  height:4px;width:32px;border-radius:3px;background:var(--p1);opacity:.75}
+
 /* Edit mode */
 @keyframes jiggle{
   0%  {transform:rotate(-1.2deg) scale(1.005)}
@@ -1264,9 +1438,11 @@ loadWidgets();
 }
 #widget-grid.edit-mode .widget:active{cursor:grabbing}
 #widget-grid.edit-mode .wctrl{display:flex}
+#widget-grid.edit-mode .wrh-r,
+#widget-grid.edit-mode .wrh-b{display:block}
 #widget-grid.edit-mode .widget.dragging{opacity:.35;animation:none}
 #widget-grid.edit-mode .widget.drag-over > .card,
-#widget-grid.edit-mode .widget.drag-over > div:not(.wctrl){
+#widget-grid.edit-mode .widget.drag-over > div:not(.wctrl):not(.wrh-r):not(.wrh-b){
   outline:2px dashed var(--p1);border-radius:16px;
 }
 
@@ -1288,7 +1464,7 @@ loadWidgets();
 .widget[data-size="S"] .stars{font-size:8px}
 .widget[data-size="S"] .ri svg{width:58px;height:58px}
 .widget[data-size="S"] .radials{grid-template-columns:repeat(3,1fr)}
-.widget[data-size="S"] .int-grid{grid-template-columns:repeat(3,1fr)!important}
+.widget[data-size="S"] .int-grid{grid-template-columns:repeat(2,1fr)!important}
 .widget[data-size="S"] .tool-grid{grid-template-columns:repeat(2,1fr)!important}
 .widget[data-size="S"] .lr-sep{display:none}
 .widget[data-size="S"] .lang-row{flex-direction:column;gap:3px}
@@ -1299,20 +1475,18 @@ loadWidgets();
 /* L size: expanded */
 .widget[data-size="L"] .radials{grid-template-columns:repeat(6,1fr)}
 .widget[data-size="L"] .tool-grid{grid-template-columns:repeat(4,1fr)!important}
-.widget[data-size="L"] .int-grid{grid-template-columns:repeat(7,1fr)!important}
+.widget[data-size="L"] .int-grid{grid-template-columns:repeat(5,1fr)!important}
 .widget[data-size="L"] .stats{grid-template-columns:repeat(3,1fr)}
 .widget[data-size="L"] .skills{gap:12px}
 
 /* Responsive */
 @media(max-width:900px){
   #widget-grid{grid-template-columns:repeat(2,1fr)}
-  .widget[data-size="S"]{grid-column:span 1}
-  .widget[data-size="M"]{grid-column:span 1}
-  .widget[data-size="L"]{grid-column:span 2}
+  .wrh-r{display:none!important}
 }
 @media(max-width:540px){
   #widget-grid{grid-template-columns:1fr}
-  .widget[data-size="S"],.widget[data-size="M"],.widget[data-size="L"]{grid-column:span 1}
+  .wrh-r,.wrh-b{display:none!important}
 }
 
 </style>
