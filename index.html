@@ -79,27 +79,27 @@ body{
 }
 
 /* ═══ LAYOUT ═══ */
-.page{max-width:1360px;margin:0 auto;padding:24px 28px 60px}
-.col2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
-.col4060{display:grid;grid-template-columns:2fr 3fr;gap:18px;margin-bottom:18px}
-.full{margin-bottom:18px}
+.page{max-width:1280px;margin:0 auto;padding:20px 24px 50px}
+.col2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.col4060{display:grid;grid-template-columns:2fr 3fr;gap:14px;margin-bottom:14px}
+.full{margin-bottom:14px}
 
 /* ═══ CARD ═══ */
 .card{
-  background:var(--card);border:1px solid var(--border);border-radius:18px;
-  padding:26px;box-shadow:var(--shadow-sm);
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  padding:20px 22px;box-shadow:var(--shadow-sm);
   transition:border-color .25s,transform .25s,background .25s,box-shadow .25s;
   position:relative;overflow:hidden;
 }
 .card:hover{border-color:var(--p1);transform:translateY(-2px);box-shadow:var(--shadow)}
 
 /* ═══ SECTION HEAD ═══ */
-.sh{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.sh{display:flex;align-items:center;gap:9px;margin-bottom:16px}
 .si{
-  width:32px;height:32px;border-radius:8px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;font-size:15px;
+  width:28px;height:28px;border-radius:7px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:13px;
 }
-.sh h2{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--sub)}
+.sh h2{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--sub)}
 
 /* ═══ CONTROLS BAR ═══ */
 .controls{
@@ -133,7 +133,7 @@ body{
 .btn-print:hover{border-color:var(--p1);transform:translateY(-1px)}
 
 /* ═══ HERO ═══ */
-.hero{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:28px 36px;margin-bottom:18px;display:grid;grid-template-columns:220px 1fr;gap:32px;align-items:start;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:background .25s,border-color .25s}
+.hero{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px 28px;margin-bottom:14px;display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:start;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:background .25s,border-color .25s}
 .hero::after{content:'';position:absolute;top:-70px;right:-70px;width:260px;height:260px;background:var(--gp);border-radius:50%;opacity:.06;filter:blur(48px);pointer-events:none}
 .av-ring{width:148px;height:148px;border-radius:50%;background:var(--gp);padding:3px;animation:spin 10s linear infinite}
 .av-inner{width:100%;height:100%;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:60px;animation:spin 10s linear infinite reverse;transition:background .25s}
@@ -148,7 +148,11 @@ a.avi{cursor:pointer}
 .avi svg,.avi>span:first-child{flex-shrink:0;width:16px;text-align:center}
 .avi span+span,.avi svg+span{color:var(--text);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .hl-lang{width:100%;margin-top:6px}
-.hl-h{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:6px}
+.hl-h{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:5px}
+.hl-langs-mini{display:flex;flex-direction:column;gap:3px}
+.hlm{font-size:11px;color:var(--sub);display:flex;align-items:center;gap:5px;padding:3px 6px;border-radius:6px;background:var(--surface)}
+.hlm span{font-weight:600;color:var(--text)}
+.hlm em{font-style:normal;color:var(--muted);margin-left:auto;font-size:10px}
 .hero-right{padding-top:2px}
 /* ── Layout A (default): sidebar ── */
 [data-layout="A"] .hl-lang{display:block}
@@ -219,15 +223,15 @@ a.avi{cursor:pointer}
 .tr{background:rgba(255,94,126,.1);color:var(--r1);border:1px solid rgba(255,94,126,.2)}
 
 /* ═══ STATS ═══ */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:14px}
 .stat{
   background:var(--card);border:1px solid var(--border);
-  border-radius:16px;padding:20px 14px;text-align:center;
+  border-radius:13px;padding:14px 12px;text-align:center;
   transition:transform .25s,border-color .25s,background .25s;cursor:default;
 }
-.stat:hover{transform:translateY(-4px);border-color:var(--p1);box-shadow:var(--shadow)}
-.si2{font-size:24px;margin-bottom:7px;display:block}
-.sn{font-size:28px;font-weight:800;line-height:1;margin-bottom:3px;display:block}
+.stat:hover{transform:translateY(-3px);border-color:var(--p1);box-shadow:var(--shadow)}
+.si2{font-size:20px;margin-bottom:5px;display:block}
+.sn{font-size:24px;font-weight:800;line-height:1;margin-bottom:2px;display:block}
 .sl{font-size:11px;font-weight:600;color:var(--muted);display:block}
 .stat:nth-child(1) .sn{background:var(--gp);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .stat:nth-child(2) .sn{background:var(--ga);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -235,7 +239,7 @@ a.avi{cursor:pointer}
 .stat:nth-child(4) .sn{background:var(--gr);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 /* ═══ SKILL BARS ═══ */
-.skills{display:flex;flex-direction:column;gap:13px}
+.skills{display:flex;flex-direction:column;gap:10px}
 .sk-h{display:flex;justify-content:space-between;margin-bottom:6px}
 .sk-n{font-size:13px;font-weight:600}
 .sk-p{font-size:11px;font-weight:700;color:var(--muted)}
@@ -244,7 +248,7 @@ a.avi{cursor:pointer}
 
 /* ═══ TIMELINE ═══ */
 .tl{display:flex;flex-direction:column}
-.ti{display:grid;grid-template-columns:18px 1fr;gap:12px;padding-bottom:22px}
+.ti{display:grid;grid-template-columns:16px 1fr;gap:10px;padding-bottom:17px}
 .ti:last-child{padding-bottom:0}
 .tline{display:flex;flex-direction:column;align-items:center}
 .tdot{
@@ -266,9 +270,9 @@ a.avi{cursor:pointer}
 [data-theme="light"] .ttag{background:rgba(67,97,238,.1)}
 
 /* ═══ RADIAL SVG ═══ */
-.radials{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.radials{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .ri{text-align:center}
-.ri svg{width:88px;height:88px;display:block;margin:0 auto 6px}
+.ri svg{width:76px;height:76px;display:block;margin:0 auto 5px}
 .rbg{fill:none;stroke:var(--border);stroke-width:8}
 .rfg{fill:none;stroke-width:8;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%}
 .r-pct{font-size:13px;font-weight:800;fill:var(--text)}
@@ -276,7 +280,7 @@ a.avi{cursor:pointer}
 .ri-n{font-size:11px;font-weight:600}
 
 /* ═══ EDUCATION ═══ */
-.edu{display:flex;gap:13px;align-items:center;padding:13px;border-radius:12px;background:var(--surface);border:1px solid var(--border);transition:border-color .2s,background .25s}
+.edu{display:flex;gap:11px;align-items:center;padding:11px;border-radius:10px;background:var(--surface);border:1px solid var(--border);transition:border-color .2s,background .25s}
 .edu:hover{border-color:var(--p1)}
 .edu-ico{width:42px;height:42px;border-radius:11px;background:var(--gp);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
 .edu-info h3{font-size:13px;font-weight:700}
@@ -287,10 +291,10 @@ a.avi{cursor:pointer}
 .gl{font-size:9px;color:var(--muted)}
 
 /* ═══ CERTS ═══ */
-.cert-list{display:flex;flex-direction:column;gap:8px}
+.cert-list{display:flex;flex-direction:column;gap:6px}
 .cert{
-  display:flex;align-items:center;gap:11px;
-  padding:11px 13px;border-radius:11px;
+  display:flex;align-items:center;gap:9px;
+  padding:9px 11px;border-radius:9px;
   background:var(--surface);border:1px solid var(--border);
   border-left:3px solid;transition:all .2s;
 }
@@ -308,10 +312,10 @@ a.avi{cursor:pointer}
 .cert-plan{padding:2px 7px;border-radius:5px;font-size:9px;font-weight:700;background:rgba(255,208,96,.15);color:var(--y1);border:1px dashed rgba(255,208,96,.4)}
 
 /* ═══ CORE TOOLS GRID ═══ */
-.tool-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+.tool-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
 .tc{
-  background:var(--surface);border:1px solid var(--border);border-radius:13px;
-  padding:15px 10px;text-align:center;transition:all .25s;cursor:default;
+  background:var(--surface);border:1px solid var(--border);border-radius:11px;
+  padding:12px 8px;text-align:center;transition:all .25s;cursor:default;
   position:relative;overflow:hidden;
 }
 .tc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:2px 2px 0 0}
@@ -343,7 +347,6 @@ a.avi{cursor:pointer}
 .kpi-sub{font-size:10px;color:var(--muted)}
 
 /* ═══ LANGUAGES ═══ */
-.lang-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .lang{
   display:flex;align-items:center;gap:9px;
   padding:10px 12px;border-radius:10px;
@@ -474,6 +477,31 @@ a.avi{cursor:pointer}
   .kpi-grid{grid-template-columns:1fr 1fr}
   .radials{grid-template-columns:1fr 1fr}
 }
+
+/* ═══ LANG ROW ═══ */
+.lang-row{display:flex;align-items:center;flex-wrap:wrap;gap:8px 16px;padding:11px 14px;border-radius:10px;background:var(--surface);border:1px solid var(--border);margin-bottom:14px}
+.lr-item{font-size:12px;display:flex;align-items:center;gap:5px}
+.lr-item strong{color:var(--text)}
+.lr-item em{color:var(--muted);font-style:normal;font-size:11px}
+.lr-sep{color:var(--border);font-size:18px;font-weight:300;line-height:1}
+
+/* ═══ HDIV (section separator) ═══ */
+.hdiv{height:1px;background:var(--border);margin:18px 0}
+
+/* ═══ GOAL ═══ */
+.goal-title{font-size:13px;font-weight:700;margin-bottom:9px;color:var(--p1)}
+.goal p{font-size:12.5px;color:var(--sub);line-height:1.8;text-align:justify}
+.str-list{display:flex;flex-direction:column;gap:8px}
+.str-item{display:flex;gap:9px;align-items:flex-start;font-size:12px;color:var(--sub);line-height:1.7}
+.str-check{color:var(--a1);font-weight:800;flex-shrink:0;margin-top:2px}
+.str-text strong{color:var(--text)}
+
+/* ═══ INTERESTS ═══ */
+.ii{border:1px solid var(--border)}
+.ii:hover{border-color:var(--p1);transform:translateY(-2px)}
+.ii-ico{font-size:20px}
+.ii-n{font-size:11px;font-weight:600;color:var(--sub)}
+
 </style>
 </head>
 <body>
@@ -539,13 +567,14 @@ a.avi{cursor:pointer}
       <a class="avi" href="https://x.com/laswy_eth" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span>laswy_eth</span></a>
     </div>
 
-    <!-- Layout B / C: Ngôn ngữ xuất hiện ở đây -->
+    <!-- Layout A/C: Ngôn ngữ gọn -->
     <div class="hl-lang">
       <div class="hl-h">🌍 Ngôn ngữ</div>
-      <div class="lang-grid">
-        <div class="lang"><span class="lflag">🇻🇳</span><div><div class="lname">Tiếng Việt</div><div class="llvl">Bản ngữ</div></div><div class="ldots"><div class="ld on"></div><div class="ld on"></div><div class="ld on"></div><div class="ld on"></div><div class="ld on"></div></div></div>
-        <div class="lang"><span class="lflag">🇺🇸</span><div><div class="lname">English</div><div class="llvl">Đọc tài liệu KT (B1)</div></div><div class="ldots"><div class="ld on"></div><div class="ld on"></div><div class="ld on"></div><div class="ld"></div><div class="ld"></div></div></div>
-        <div class="lang"><span class="lflag">🇯🇵</span><div><div class="lname">日本語</div><div class="llvl">Giao tiếp cơ bản</div></div><div class="ldots"><div class="ld on"></div><div class="ld on"></div><div class="ld"></div><div class="ld"></div><div class="ld"></div></div></div>
+      <div class="hl-langs-mini">
+        <div class="hlm">🇻🇳 <span>Tiếng Việt</span> <em>Bản ngữ</em></div>
+        <div class="hlm">🇬🇧 <span>English</span> <em>B1</em></div>
+        <div class="hlm">🇯🇵 <span>日本語</span> <em>Cơ bản</em></div>
+        <div class="hlm">🇰🇷 <span>한국어</span> <em>Cơ bản</em></div>
       </div>
     </div>
   </div>
@@ -580,16 +609,17 @@ a.avi{cursor:pointer}
 
 </div>
 
+
 <!-- ═══ STATS ═══ -->
-<div class="stats" style="grid-template-columns:repeat(3,1fr)">
+<div class="stats">
   <div class="stat"><span class="si2">⏱️</span><span class="sn">13+</span><span class="sl">Năm kinh nghiệm</span></div>
   <div class="stat"><span class="si2">🏭</span><span class="sn">11+</span><span class="sl">Năm tại Sanwa VN</span></div>
   <div class="stat"><span class="si2">📋</span><span class="sn">5</span><span class="sl">Năm Giám sát SX</span></div>
 </div>
 
-<!-- ═══ SKILLS + EXPERIENCE ═══ -->
-<div class="col4060">
-  <div class="card">
+<!-- ═══ KỸ NĂNG ═══ -->
+<div class="col2">
+<div class="card">
     <div class="sh"><div class="si" style="background:rgba(123,114,255,.15)">⚡</div><h2>Kỹ năng chuyên môn</h2></div>
     <div class="skills">
       <div><div class="sk-h"><span class="sk-n">ISO 9001:2015 / IATF 16949</span><span class="sk-p">92%</span></div><div class="sk-bar"><div class="sk-f" data-w="92" style="background:var(--gp);--d:.10s"></div></div></div>
@@ -603,60 +633,7 @@ a.avi{cursor:pointer}
     </div>
   </div>
 
-  <div class="card">
-    <div class="sh"><div class="si" style="background:rgba(54,245,166,.12)">💼</div><h2>Kinh nghiệm làm việc</h2></div>
-    <div class="tl">
-      <div class="ti">
-        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
-        <div>
-          <div class="tt">
-            <div><div class="t-title">Phụ trách ISO 9001 / 14001 / IATF 16949</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
-            <span class="t-dt">04/2026 – Nay</span>
-          </div>
-          <p class="t-desc">Chuyên trách xây dựng, duy trì và cải tiến hệ thống quản lý tích hợp ISO 9001:2015 / ISO 14001:2015 / IATF 16949:2016. Lập kế hoạch và thực hiện đánh giá nội bộ (Internal Audit), xử lý NCR, theo dõi CAPA và chuẩn bị hồ sơ phối hợp đánh giá cấp chứng nhận bên ngoài.</p>
-          <div class="ttags"><span class="ttag">ISO 9001</span><span class="ttag">ISO 14001</span><span class="ttag">IATF 16949</span><span class="ttag">Internal Audit</span><span class="ttag">CAPA / NCR</span><span class="ttag">Document Control</span></div>
-        </div>
-      </div>
-      <div class="ti">
-        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
-        <div>
-          <div class="tt">
-            <div><div class="t-title">Giám sát Sản xuất</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
-            <span class="t-dt">01/2021 – 03/2026</span>
-          </div>
-          <p class="t-desc">Vị trí Giám sát sản xuất – cấp dưới Trưởng phòng, quản lý trực tiếp toàn bộ hoạt động ca làm việc: <strong>tính toán và lập kế hoạch sản xuất</strong> theo đơn hàng; <strong>sắp xếp nhân sự</strong>, phân công công việc phù hợp năng lực từng người; <strong>theo dõi các chỉ số</strong> sản lượng, chất lượng, OEE theo ca; <strong>điều chỉnh</strong> kịp thời khi phát sinh sự cố hoặc lệch kế hoạch. Đào tạo nhân viên mới và duy trì kỷ luật 5S.</p>
-          <div class="ttags"><span class="ttag">Giám sát SX</span><span class="ttag">Kế hoạch SX</span><span class="ttag">Quản lý nhân sự</span><span class="ttag">Phân công CV</span><span class="ttag">KPI / OEE</span><span class="ttag">5S</span></div>
-        </div>
-      </div>
-      <div class="ti">
-        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
-        <div>
-          <div class="tt">
-            <div><div class="t-title">Nhân viên Sản xuất</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
-            <span class="t-dt">09/2014 – 12/2020</span>
-          </div>
-          <p class="t-desc">Bắt đầu từ nhân viên sản xuất, làm quen và thành thạo hệ thống sản xuất Nhật Bản. Từng bước nắm vững quy trình, kỷ luật 5S và tiêu chuẩn chất lượng. Được đề bạt lên Giám sát sau 6+ năm.</p>
-          <div class="ttags"><span class="ttag">Sản xuất Nhật Bản</span><span class="ttag">5S</span><span class="ttag">Kiểm soát chất lượng</span></div>
-        </div>
-      </div>
-      <div class="ti">
-        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
-        <div>
-          <div class="tt">
-            <div><div class="t-title">Kỹ sư Kỹ thuật</div><div class="t-co">⛏️ Cty TNHH MTV Kim loại màu Bắc Kạn</div></div>
-            <span class="t-dt">10/2012 – 09/2013</span>
-          </div>
-          <p class="t-desc">Vị trí đầu tiên sau tốt nghiệp tại nhà máy luyện kim màu. Lập kế hoạch bảo trì, bảo dưỡng định kỳ và sửa chữa lớn cho hệ thống thiết bị công nghiệp; xây dựng và quản lý hồ sơ kỹ thuật, quyết toán công trình sửa chữa theo quy định.</p>
-          <div class="ttags"><span class="ttag">Kế hoạch bảo trì</span><span class="ttag">Bảo dưỡng thiết bị</span><span class="ttag">Sửa chữa lớn</span><span class="ttag">Hồ sơ quyết toán</span><span class="ttag">Luyện kim màu</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ SOFT SKILLS + EDU/CERTS ═══ -->
-<div class="col2">
-  <div class="card">
+<div class="card">
     <div class="sh"><div class="si" style="background:rgba(255,208,96,.12)">🧠</div><h2>Kỹ năng mềm</h2></div>
     <div class="radials">
       <div class="ri">
@@ -721,8 +698,27 @@ a.avi{cursor:pointer}
       </div>
     </div>
   </div>
+</div>
 
-  <div class="card">
+<!-- ═══ CORE TOOLS ═══ -->
+<div class="card full">
+  <div class="sh"><div class="si" style="background:rgba(54,245,166,.1)">🛠️</div><h2>Công cụ chất lượng – IATF Core Tools &amp; Phương pháp</h2></div>
+  <div class="tool-grid">
+    <div class="tc"><div class="tc-ico">📋</div><div class="tc-n">APQP</div><div class="tc-full">Advanced Product Quality Planning</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
+    <div class="tc"><div class="tc-ico">📦</div><div class="tc-n">PPAP</div><div class="tc-full">Production Part Approval Process</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
+    <div class="tc"><div class="tc-ico">⚠️</div><div class="tc-n">FMEA</div><div class="tc-full">Failure Mode & Effects Analysis</div><div class="stars">⭐⭐⭐⭐☆</div></div>
+    <div class="tc"><div class="tc-ico">📊</div><div class="tc-n">SPC</div><div class="tc-full">Statistical Process Control</div><div class="stars">⭐⭐⭐⭐☆</div></div>
+    <div class="tc"><div class="tc-ico">📐</div><div class="tc-n">Control Plan</div><div class="tc-full">Kế hoạch kiểm soát quá trình</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
+    <div class="tc"><div class="tc-ico">🔬</div><div class="tc-n">MSA</div><div class="tc-full">Measurement System Analysis</div><div class="stars">⭐⭐⭐☆☆</div></div>
+    <div class="tc"><div class="tc-ico">🐟</div><div class="tc-n">8D / Fishbone</div><div class="tc-full">8D Problem Solving & Ishikawa</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
+    <div class="tc"><div class="tc-ico">🗺️</div><div class="tc-n">VSM / Kaizen</div><div class="tc-full">Value Stream Mapping & Cải tiến</div><div class="stars">⭐⭐⭐⭐☆</div></div>
+  </div>
+</div>
+
+
+<!-- ═══ HỌC VẤN & NGÔN NGỮ ═══ -->
+<div class="col2">
+<div class="card">
     <div class="sh"><div class="si" style="background:rgba(255,94,126,.1)">🎓</div><h2>Học vấn</h2></div>
     <div class="edu">
       <div class="edu-ico">🏛️</div>
@@ -763,58 +759,19 @@ a.avi{cursor:pointer}
       </div>
     </div>
   </div>
-</div>
 
-<!-- ═══ CORE TOOLS ═══ -->
-<div class="card full">
-  <div class="sh"><div class="si" style="background:rgba(54,245,166,.1)">🛠️</div><h2>Công cụ chất lượng – IATF Core Tools &amp; Phương pháp</h2></div>
-  <div class="tool-grid">
-    <div class="tc"><div class="tc-ico">📋</div><div class="tc-n">APQP</div><div class="tc-full">Advanced Product Quality Planning</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
-    <div class="tc"><div class="tc-ico">📦</div><div class="tc-n">PPAP</div><div class="tc-full">Production Part Approval Process</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
-    <div class="tc"><div class="tc-ico">⚠️</div><div class="tc-n">FMEA</div><div class="tc-full">Failure Mode & Effects Analysis</div><div class="stars">⭐⭐⭐⭐☆</div></div>
-    <div class="tc"><div class="tc-ico">📊</div><div class="tc-n">SPC</div><div class="tc-full">Statistical Process Control</div><div class="stars">⭐⭐⭐⭐☆</div></div>
-    <div class="tc"><div class="tc-ico">📐</div><div class="tc-n">Control Plan</div><div class="tc-full">Kế hoạch kiểm soát quá trình</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
-    <div class="tc"><div class="tc-ico">🔬</div><div class="tc-n">MSA</div><div class="tc-full">Measurement System Analysis</div><div class="stars">⭐⭐⭐☆☆</div></div>
-    <div class="tc"><div class="tc-ico">🐟</div><div class="tc-n">8D / Fishbone</div><div class="tc-full">8D Problem Solving & Ishikawa</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
-    <div class="tc"><div class="tc-ico">🗺️</div><div class="tc-n">VSM / Kaizen</div><div class="tc-full">Value Stream Mapping & Cải tiến</div><div class="stars">⭐⭐⭐⭐☆</div></div>
-  </div>
-</div>
-
-<!-- ═══ KPI IMPROVEMENTS ═══ -->
-<div class="card full" style="display:none">
-  <div class="sh"><div class="si" style="background:rgba(255,208,96,.12)">📈</div><h2>Thành tích KPI nổi bật (Giai đoạn 2018 – 2023)</h2></div>
-  <div class="kpi-grid">
-    <div class="kpi">
-      <div class="kpi-label">DPPM (Lỗi / triệu SP)</div>
-      <div class="kpi-val down">850 → 380</div>
-      <div class="kpi-sub">↓ 55% · Kaizen liên tục 2 năm</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">OEE (Hiệu suất thiết bị)</div>
-      <div class="kpi-val up">76% → 88%</div>
-      <div class="kpi-sub">↑ 12 điểm % · Duy trì 12 tháng</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">Điểm 5S nội bộ</div>
-      <div class="kpi-val up">3.2 → 4.6</div>
-      <div class="kpi-sub">↑ 44% · Trong 1 chu kỳ đánh giá</div>
-    </div>
-    <div class="kpi">
-      <div class="kpi-label">NCR Closure Rate</div>
-      <div class="kpi-val up">68% → 96%</div>
-      <div class="kpi-sub">↑ 28 điểm · Đạt mục tiêu IATF</div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══ LANGUAGES + INTERESTS + GOAL ═══ -->
-<div class="col2">
-  <div class="card">
+<div class="card">
     <div class="sh"><div class="si" style="background:rgba(123,114,255,.12)">🌍</div><h2>Ngôn ngữ</h2></div>
-    <div class="lang-grid">
-      <div class="lang">
-        <span class="lflag">🇻🇳</span>
-        <div><div class="lname">Tiếng Việt</div><div class="llvl">Bản ngữ</div></div>
+        <div class="lang-row">
+      <span class="lr-item">🇻🇳 <strong>Tiếng Việt</strong> <em>Bản ngữ</em></span>
+      <span class="lr-sep">·</span>
+      <span class="lr-item">🇬🇧 <strong>English</strong> <em>B1</em></span>
+      <span class="lr-sep">·</span>
+      <span class="lr-item">🇯🇵 <strong>日本語</strong> <em>Cơ bản</em></span>
+      <span class="lr-sep">·</span>
+      <span class="lr-item">🇰🇷 <strong>한국어</strong> <em>Cơ bản</em></span>
+    </div>
+<div class="llvl">Bản ngữ</div></div>
         <div class="ldots"><div class="ld on"></div><div class="ld on"></div><div class="ld on"></div><div class="ld on"></div><div class="ld on"></div></div>
       </div>
       <div class="lang">
@@ -843,8 +800,11 @@ a.avi{cursor:pointer}
       <div class="ii"><span class="ii-ico">📸</span><span class="ii-n">Chụp ảnh</span></div>
     </div>
   </div>
+</div>
 
-  <div class="card">
+<!-- ═══ MỤC TIÊU ═══ -->
+<div class="full">
+<div class="card">
     <div class="sh"><div class="si" style="background:rgba(54,245,166,.1)">🎯</div><h2>Mục tiêu nghề nghiệp</h2></div>
     <div class="goal">
       <div class="goal-title">🚀 Định hướng 1–2 năm tới</div>
@@ -857,6 +817,59 @@ a.avi{cursor:pointer}
       <div class="str-item"><span class="str-check">✓</span><span class="str-text">Hiểu cả 2 phía: <strong>vận hành sản xuất thực tế</strong> lẫn <strong>hệ thống ISO/IATF</strong> – lợi thế ít Giám sát nào có được</span></div>
       <div class="str-item"><span class="str-check">✓</span><span class="str-text"><strong>Hồ sơ BHXH sạch</strong> – 12 năm 9 tháng, 0 tháng chậm đóng, thể hiện sự ổn định và uy tín nghề nghiệp</span></div>
       <div class="str-item"><span class="str-check">✓</span><span class="str-text">Kỹ sư Cơ khí – nền tảng kỹ thuật vững chắc từ ĐH Kỹ thuật Công nghiệp Thái Nguyên, có kinh nghiệm lập kế hoạch bảo trì &amp; quyết toán từ đầu sự nghiệp</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ KINH NGHIỆM LÀM VIỆC ═══ -->
+<div class="full">
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(54,245,166,.12)">💼</div><h2>Kinh nghiệm làm việc</h2></div>
+    <div class="tl">
+      <div class="ti">
+        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
+        <div>
+          <div class="tt">
+            <div><div class="t-title">Phụ trách ISO 9001 / 14001 / IATF 16949</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
+            <span class="t-dt">04/2026 – Nay</span>
+          </div>
+          <p class="t-desc">Chuyên trách xây dựng, duy trì và cải tiến hệ thống quản lý tích hợp ISO 9001:2015 / ISO 14001:2015 / IATF 16949:2016. Lập kế hoạch và thực hiện đánh giá nội bộ (Internal Audit), xử lý NCR, theo dõi CAPA và chuẩn bị hồ sơ phối hợp đánh giá cấp chứng nhận bên ngoài.</p>
+          <div class="ttags"><span class="ttag">ISO 9001</span><span class="ttag">ISO 14001</span><span class="ttag">IATF 16949</span><span class="ttag">Internal Audit</span><span class="ttag">CAPA / NCR</span><span class="ttag">Document Control</span></div>
+        </div>
+      </div>
+      <div class="ti">
+        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
+        <div>
+          <div class="tt">
+            <div><div class="t-title">Giám sát Sản xuất</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
+            <span class="t-dt">01/2021 – 03/2026</span>
+          </div>
+          <p class="t-desc">Vị trí Giám sát sản xuất – cấp dưới Trưởng phòng, quản lý trực tiếp toàn bộ hoạt động ca làm việc: <strong>tính toán và lập kế hoạch sản xuất</strong> theo đơn hàng; <strong>sắp xếp nhân sự</strong>, phân công công việc phù hợp năng lực từng người; <strong>theo dõi các chỉ số</strong> sản lượng, chất lượng, OEE theo ca; <strong>điều chỉnh</strong> kịp thời khi phát sinh sự cố hoặc lệch kế hoạch. Đào tạo nhân viên mới và duy trì kỷ luật 5S.</p>
+          <div class="ttags"><span class="ttag">Giám sát SX</span><span class="ttag">Kế hoạch SX</span><span class="ttag">Quản lý nhân sự</span><span class="ttag">Phân công CV</span><span class="ttag">KPI / OEE</span><span class="ttag">5S</span></div>
+        </div>
+      </div>
+      <div class="ti">
+        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
+        <div>
+          <div class="tt">
+            <div><div class="t-title">Nhân viên Sản xuất</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
+            <span class="t-dt">09/2014 – 12/2020</span>
+          </div>
+          <p class="t-desc">Bắt đầu từ nhân viên sản xuất, làm quen và thành thạo hệ thống sản xuất Nhật Bản. Từng bước nắm vững quy trình, kỷ luật 5S và tiêu chuẩn chất lượng. Được đề bạt lên Giám sát sau 6+ năm.</p>
+          <div class="ttags"><span class="ttag">Sản xuất Nhật Bản</span><span class="ttag">5S</span><span class="ttag">Kiểm soát chất lượng</span></div>
+        </div>
+      </div>
+      <div class="ti">
+        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
+        <div>
+          <div class="tt">
+            <div><div class="t-title">Kỹ sư Kỹ thuật</div><div class="t-co">⛏️ Cty TNHH MTV Kim loại màu Bắc Kạn</div></div>
+            <span class="t-dt">10/2012 – 09/2013</span>
+          </div>
+          <p class="t-desc">Vị trí đầu tiên sau tốt nghiệp tại nhà máy luyện kim màu. Lập kế hoạch bảo trì, bảo dưỡng định kỳ và sửa chữa lớn cho hệ thống thiết bị công nghiệp; xây dựng và quản lý hồ sơ kỹ thuật, quyết toán công trình sửa chữa theo quy định.</p>
+          <div class="ttags"><span class="ttag">Kế hoạch bảo trì</span><span class="ttag">Bảo dưỡng thiết bị</span><span class="ttag">Sửa chữa lớn</span><span class="ttag">Hồ sơ quyết toán</span><span class="ttag">Luyện kim màu</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -898,6 +911,7 @@ a.avi{cursor:pointer}
   .ac-sep{font-size:22px;color:var(--border);align-self:center;font-weight:300}
   @media print{#agectr{display:none!important}}
 </style>
+
 
 </div><!-- .page -->
 
