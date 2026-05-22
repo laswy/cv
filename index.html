@@ -986,7 +986,7 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 <style>
 #pcv{font-family:'Be Vietnam Pro',Arial,sans-serif;font-size:8pt;color:#1E293B;line-height:1.55;background:#fff;
   width:100%;box-sizing:border-box;overflow:hidden;
-  display:flex;flex-direction:column;min-height:281mm}
+  display:flex;flex-direction:column;height:281mm}
 #pcv a{text-decoration:none;color:inherit}
 
 /* ── Header ── */
@@ -999,7 +999,8 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 .ph-c b{color:#1E293B;font-weight:600}
 
 /* ── Body grid ── */
-.pb{display:grid;grid-template-columns:35% 1fr;gap:8pt;flex:1;align-content:start}
+.pb{display:grid;grid-template-columns:35% 1fr;gap:8pt;flex:1;min-height:0;align-items:stretch}
+.pb>div{display:flex;flex-direction:column;justify-content:space-between}
 
 /* ── Section ── */
 .ps{margin-bottom:8pt}
