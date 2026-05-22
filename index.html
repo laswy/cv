@@ -449,16 +449,7 @@ body{
 @media print {
   html, body { margin: 0 !important; padding: 0 !important; }
   #lock, .page, #agectr { display: none !important; }
-  #pcv {
-    display: flex !important;
-    flex-direction: column;
-    height: 281mm !important;
-    overflow: hidden !important;
-    page-break-after: avoid !important;
-    page-break-before: avoid !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid-page !important;
-  }
+  #pcv { display: block !important; }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }
 @page { size: A4 portrait; margin: 8mm 11mm; }
@@ -993,7 +984,7 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 ════════════════════════════════════════════ -->
 <div id="pcv">
 <style>
-#pcv{font-family:'Be Vietnam Pro',Arial,sans-serif;font-size:8pt;color:#1E293B;line-height:1.55;background:#fff;
+#pcv{font-family:'Be Vietnam Pro',Arial,sans-serif;font-size:8.5pt;color:#1E293B;line-height:1.6;background:#fff;
   width:100%;box-sizing:border-box}
 #pcv a{text-decoration:none;color:inherit}
 
@@ -1007,15 +998,14 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 .ph-c b{color:#1E293B;font-weight:600}
 
 /* ── Body grid ── */
-.pb{display:grid;grid-template-columns:35% 1fr;gap:8pt;flex:1;min-height:0;align-items:stretch}
-.pb>div{display:flex;flex-direction:column;justify-content:space-between}
+.pb{display:grid;grid-template-columns:35% 1fr;gap:10pt}
 
 /* ── Section ── */
-.ps{margin-bottom:8pt}
+.ps{margin-bottom:10pt}
 .ps-h{font-size:6pt;font-weight:800;text-transform:uppercase;letter-spacing:.8pt;color:#4361EE;border-bottom:1pt solid #E2E8F0;padding-bottom:2pt;margin-bottom:4pt}
 
 /* ── Skill bars ── */
-.psk{margin-bottom:3pt}
+.psk{margin-bottom:4.5pt}
 .psk-top{display:flex;justify-content:space-between;margin-bottom:1pt}
 .psk-n{font-size:7pt;font-weight:600;color:#1E293B}
 .psk-p{font-size:6.5pt;color:#94A3B8}
@@ -1023,13 +1013,13 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 .psk-f{height:100%;border-radius:2pt}
 
 /* ── Experience ── */
-.pe{padding-bottom:7pt;margin-bottom:7pt;border-bottom:1pt solid #F1F5F9}
+.pe{padding-bottom:9pt;margin-bottom:9pt;border-bottom:1pt solid #F1F5F9}
 .pe:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
 .pe-row{display:flex;justify-content:space-between;align-items:baseline;gap:4pt;margin-bottom:1pt}
 .pe-title{font-size:8pt;font-weight:800;color:#1E293B;flex:1;min-width:0}
 .pe-dt{font-size:6.5pt;font-weight:700;color:#64748B;white-space:nowrap;flex-shrink:0}
 .pe-co{font-size:7pt;color:#4361EE;font-weight:600;margin-bottom:1.5pt}
-.pe-desc{font-size:7pt;color:#475569;line-height:1.55;text-align:justify}
+.pe-desc{font-size:7.5pt;color:#475569;line-height:1.65;text-align:justify}
 .pe-tags{display:flex;flex-wrap:wrap;gap:2pt;margin-top:2pt}
 .pe-tag{font-size:6pt;padding:1pt 3.5pt;background:#EEF2FA;color:#4361EE;border-radius:2pt;font-weight:600}
 
@@ -1040,7 +1030,7 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 .pedu-yr{font-size:6.5pt;color:#94A3B8}
 
 /* ── Cert ── */
-.pcert{display:flex;align-items:center;gap:3.5pt;padding:2pt 0;border-bottom:1pt solid #F8FAFC}
+.pcert{display:flex;align-items:center;gap:3.5pt;padding:3.5pt 0;border-bottom:1pt solid #F8FAFC}
 .pcert:last-child{border-bottom:none}
 .pcert-dot{width:5.5pt;height:5.5pt;border-radius:50%;flex-shrink:0}
 .dot-ok{background:#10B981}
@@ -1053,7 +1043,7 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 .yr-plan{color:#F59E0B}
 
 /* ── Language ── */
-.plang{display:flex;align-items:center;gap:4pt;padding:1.5pt 0}
+.plang{display:flex;align-items:center;gap:4pt;padding:3pt 0}
 .plang-flag{font-size:8pt}
 .plang-n{font-size:7pt;font-weight:700;flex:1}
 .plang-l{font-size:6.5pt;color:#94A3B8}
