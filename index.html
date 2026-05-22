@@ -388,6 +388,58 @@ body{
 .footer{text-align:center;margin-top:36px;color:var(--muted);font-size:11px}
 .fbar{width:44px;height:3px;background:var(--gp);border-radius:2px;margin:0 auto 11px}
 
+/* ═══ LOCK SCREEN ═══ */
+#lock{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.88);backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.lkbox{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:24px;padding:44px 38px;text-align:center;
+  width:min(370px,90vw);box-shadow:0 24px 64px rgba(0,0,0,.7);
+  animation:lkIn .45s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes lkIn{from{opacity:0;transform:scale(.86) translateY(24px)}to{opacity:1;transform:none}}
+@keyframes lkOut{to{opacity:0;transform:scale(1.05)}}
+@keyframes lkShake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-11px)} 40%{transform:translateX(11px)}
+  60%{transform:translateX(-7px)}  80%{transform:translateX(7px)}
+}
+.lk-ico{font-size:54px;margin-bottom:14px;display:block;
+  animation:lkFloat 3s ease-in-out infinite}
+@keyframes lkFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.lk-title{font-size:20px;font-weight:800;margin-bottom:6px}
+.lk-sub{font-size:13px;color:var(--muted);margin-bottom:26px;line-height:1.6}
+.lk-wrap{
+  display:flex;gap:8px;
+  background:var(--surface);border:1.5px solid var(--border);
+  border-radius:13px;padding:4px 4px 4px 15px;
+  margin-bottom:10px;transition:border-color .2s;
+}
+.lk-wrap:focus-within{border-color:var(--p1);box-shadow:0 0 0 3px rgba(123,114,255,.15)}
+.lk-pw{
+  flex:1;background:none;border:none;outline:none;
+  font-family:inherit;font-size:18px;font-weight:700;
+  color:var(--text);letter-spacing:6px;padding:8px 0;width:0;
+}
+.lk-pw::placeholder{letter-spacing:0;font-weight:400;color:var(--muted);font-size:13px}
+.lk-go{
+  width:42px;height:42px;border-radius:10px;border:none;
+  background:var(--gp);color:#fff;font-size:20px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .2s,transform .15s;flex-shrink:0;
+}
+.lk-go:hover{opacity:.85;transform:scale(1.06)}
+.lk-go:active{transform:scale(.96)}
+.lk-err{font-size:12px;color:var(--r1);font-weight:600;min-height:18px}
+.lk-hint{
+  margin-top:20px;font-size:10px;color:var(--muted);opacity:.55;
+  display:flex;align-items:center;justify-content:center;gap:5px;
+}
+
 /* ═══ PRINT ═══ */
 @media print {
   .controls{display:none !important}
@@ -415,6 +467,24 @@ body{
 </style>
 </head>
 <body>
+
+<!-- ═══ LOCK SCREEN ═══ -->
+<div id="lock">
+  <div class="lkbox" id="lkbox">
+    <span class="lk-ico">🔐</span>
+    <div class="lk-title">Tài liệu được bảo mật</div>
+    <div class="lk-sub">Nhập mật khẩu để xem nội dung CV<br>cá nhân này</div>
+    <div class="lk-wrap">
+      <input class="lk-pw" id="lkpw" type="password"
+        placeholder="Mật khẩu..." maxlength="30" autocomplete="off"
+        onkeydown="if(event.key==='Enter')checkPw()">
+      <button class="lk-go" onclick="checkPw()" title="Xác nhận">→</button>
+    </div>
+    <div class="lk-err" id="lkerr"></div>
+    <div class="lk-hint">🔒 Bảo mật bằng SHA-256 · Web Crypto API</div>
+  </div>
+</div>
+
 <div class="page" id="cv">
 
 <!-- ═══ CONTROLS ═══ -->
@@ -749,6 +819,46 @@ body{
 </div><!-- .page -->
 
 <script>
+/* ── LOCK: SHA-256 hash, password never stored in plain text ── */
+const _H = '9113b98df80f877c7a2ee5d865a04c9514b4e9bf25a49d315b0b15f115d2f0d2';
+let _locked = true;
+
+async function checkPw() {
+  const inp = document.getElementById('lkpw');
+  const val = inp.value;
+  if (!val) { inp.focus(); return; }
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(val));
+  const hex = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  if (hex === _H) {
+    const lock = document.getElementById('lock');
+    lock.style.animation = 'lkOut .3s ease forwards';
+    try { sessionStorage.setItem('_cv_s','1'); } catch(e) {}
+    _locked = false;
+    setTimeout(() => { lock.remove(); animateBars(); }, 320);
+  } else {
+    const box = document.getElementById('lkbox');
+    const err = document.getElementById('lkerr');
+    err.textContent = '❌ Mật khẩu không đúng, thử lại';
+    box.style.animation = 'lkShake .38s ease';
+    setTimeout(() => { box.style.animation = ''; err.textContent = ''; }, 1300);
+    inp.value = '';
+    inp.focus();
+  }
+}
+
+/* Unlock if same browser session already verified */
+(function() {
+  try {
+    if (sessionStorage.getItem('_cv_s') === '1') {
+      _locked = false;
+      document.addEventListener('DOMContentLoaded', () => {
+        const l = document.getElementById('lock');
+        if (l) l.remove();
+      });
+    }
+  } catch(e) {}
+})();
+
 function setTheme(t) {
   document.documentElement.setAttribute('data-theme', t);
   try { localStorage.setItem('cv-theme', t); } catch(e) {}
