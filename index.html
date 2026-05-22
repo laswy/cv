@@ -80,9 +80,9 @@ body{
 
 /* ═══ LAYOUT ═══ */
 .page{max-width:1280px;margin:0 auto;padding:20px 24px 50px}
-.col2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.col2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .col4060{display:grid;grid-template-columns:2fr 3fr;gap:14px;margin-bottom:14px}
-.full{margin-bottom:14px}
+.full{margin-bottom:0}
 
 /* ═══ CARD ═══ */
 .card{
@@ -131,6 +131,8 @@ body{
 .btn-pdf:hover{opacity:.88;transform:translateY(-1px)}
 .btn-print{background:var(--card);color:var(--text);border:1px solid var(--border)}
 .btn-print:hover{border-color:var(--p1);transform:translateY(-1px)}
+.btn-edit{background:var(--surface);color:var(--sub);border:1.5px solid var(--border);font-size:12px;font-weight:700}
+.btn-edit:hover{border-color:var(--p1);color:var(--p1);transform:translateY(-1px)}
 
 /* ═══ HERO ═══ */
 .hero{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px 28px;margin-bottom:14px;display:grid;grid-template-columns:160px 1fr;gap:20px;align-items:start;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:background .25s,border-color .25s}
@@ -210,7 +212,7 @@ a.aic{cursor:pointer}
 .tr{background:rgba(255,94,126,.1);color:var(--r1);border:1px solid rgba(255,94,126,.2)}
 
 /* ═══ STATS ═══ */
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-bottom:0}
 .stat{
   background:var(--card);border:1px solid var(--border);
   border-radius:13px;padding:14px 12px;text-align:center;
@@ -527,6 +529,7 @@ a.aic{cursor:pointer}
     <button class="thbtn" id="lbtn-C" onclick="setLayout('C')" title="Minimal Pro">C</button>
   </div>
   <div class="btnrow">
+    <button id="edit-btn" class="btn btn-edit" onclick="toggleEditMode()">⠿ Sắp xếp</button>
     <button class="btn btn-print" onclick="window.print()">🖨️ In trang</button>
     <button class="btn btn-pdf"   onclick="savePDF()">📄 Xuất PDF</button>
   </div>
@@ -583,15 +586,37 @@ a.aic{cursor:pointer}
 
 </div>
 
-<!-- ═══ STATS ═══ -->
-<div class="stats">
-  <div class="stat"><span class="si2">⏱️</span><span class="sn">13+</span><span class="sl">Năm kinh nghiệm</span></div>
-  <div class="stat"><span class="si2">🏭</span><span class="sn">11+</span><span class="sl">Năm tại Sanwa VN</span></div>
-  <div class="stat"><span class="si2">📋</span><span class="sn">5</span><span class="sl">Năm Giám sát SX</span></div>
+<div id="widget-grid">
+
+<div class="widget" data-id="stats" data-size="L">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">📊 Thống kê</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('stats','S')">S</button>
+      <button class="ws" onclick="setWSize('stats','M')">M</button>
+      <button class="ws  active" onclick="setWSize('stats','L')">L</button>
+    </div>
+  </div>
+<div class="card" style="padding:18px 22px">
+  <div class="stats" style="margin-bottom:0">
+    <div class="stat"><span class="si2">⏱️</span><span class="sn">13+</span><span class="sl">Năm kinh nghiệm</span></div>
+    <div class="stat"><span class="si2">🏭</span><span class="sn">11+</span><span class="sl">Năm tại Sanwa VN</span></div>
+    <div class="stat"><span class="si2">📋</span><span class="sn">5</span><span class="sl">Năm Giám sát SX</span></div>
+  </div>
+</div>
 </div>
 
-<!-- ═══ KỸ NĂNG ═══ -->
-<div class="col2">
+<div class="widget" data-id="skills" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">⚡ Kỹ năng</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('skills','S')">S</button>
+      <button class="ws  active" onclick="setWSize('skills','M')">M</button>
+      <button class="ws" onclick="setWSize('skills','L')">L</button>
+    </div>
+  </div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(123,114,255,.15)">⚡</div><h2>Kỹ năng chuyên môn</h2></div>
     <div class="skills">
@@ -605,7 +630,18 @@ a.aic{cursor:pointer}
       <div><div class="sk-h"><span class="sk-n">AutoCAD 2D (Bản vẽ kỹ thuật)</span><span class="sk-p">70%</span></div><div class="sk-bar"><div class="sk-f" data-w="70" style="background:var(--gr);--d:.54s"></div></div></div>
     </div>
   </div>
+</div>
 
+<div class="widget" data-id="softskills" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🧠 Kỹ năng mềm</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('softskills','S')">S</button>
+      <button class="ws  active" onclick="setWSize('softskills','M')">M</button>
+      <button class="ws" onclick="setWSize('softskills','L')">L</button>
+    </div>
+  </div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(255,208,96,.12)">🧠</div><h2>Kỹ năng mềm</h2></div>
     <div class="radials">
@@ -673,8 +709,16 @@ a.aic{cursor:pointer}
   </div>
 </div>
 
-<!-- ═══ HỌC VẤN & NGÔN NGỮ / CORE TOOLS ═══ -->
-<div class="col2">
+<div class="widget" data-id="edu" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🎓 Học vấn & Chứng chỉ</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('edu','S')">S</button>
+      <button class="ws  active" onclick="setWSize('edu','M')">M</button>
+      <button class="ws" onclick="setWSize('edu','L')">L</button>
+    </div>
+  </div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(255,94,126,.1)">🎓</div><h2>Học vấn</h2></div>
     <div class="edu">
@@ -716,7 +760,18 @@ a.aic{cursor:pointer}
       </div>
     </div>
   </div>
+</div>
 
+<div class="widget" data-id="langtools" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🌍 Ngôn ngữ & Công cụ</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('langtools','S')">S</button>
+      <button class="ws  active" onclick="setWSize('langtools','M')">M</button>
+      <button class="ws" onclick="setWSize('langtools','L')">L</button>
+    </div>
+  </div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(123,114,255,.12)">🌍</div><h2>Ngôn ngữ</h2></div>
     <div class="lang-row">
@@ -751,8 +806,17 @@ a.aic{cursor:pointer}
     </div>
   </div>
 </div>
-<!-- ═══ MỤC TIÊU ═══ -->
-<div class="full">
+
+<div class="widget" data-id="goal" data-size="L">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🎯 Mục tiêu</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('goal','S')">S</button>
+      <button class="ws" onclick="setWSize('goal','M')">M</button>
+      <button class="ws  active" onclick="setWSize('goal','L')">L</button>
+    </div>
+  </div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(54,245,166,.1)">🎯</div><h2>Mục tiêu nghề nghiệp</h2></div>
     <div class="goal">
@@ -770,8 +834,16 @@ a.aic{cursor:pointer}
   </div>
 </div>
 
-<!-- ═══ KINH NGHIỆM LÀM VIỆC ═══ -->
-<div class="full">
+<div class="widget" data-id="exp" data-size="L">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">💼 Kinh nghiệm</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('exp','S')">S</button>
+      <button class="ws" onclick="setWSize('exp','M')">M</button>
+      <button class="ws  active" onclick="setWSize('exp','L')">L</button>
+    </div>
+  </div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(54,245,166,.12)">💼</div><h2>Kinh nghiệm làm việc</h2></div>
     <div class="tl">
@@ -823,6 +895,7 @@ a.aic{cursor:pointer}
   </div>
 </div>
 
+</div>
 <!-- ═══ FOOTER ═══ -->
 <div class="footer">
   <div class="fbar"></div>
@@ -983,6 +1056,100 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: .05 });
 document.querySelectorAll('.skills').forEach(el => obs.observe(el));
 window.addEventListener('load', () => setTimeout(animateBars, 400));
+
+/* ── WIDGET SYSTEM ── */
+let _editMode = false;
+let _dragSrc = null;
+
+function toggleEditMode() {
+  _editMode = !_editMode;
+  const grid = document.getElementById('widget-grid');
+  const btn  = document.getElementById('edit-btn');
+  if (_editMode) {
+    grid.classList.add('edit-mode');
+    btn.textContent = '✓ Xong';
+    btn.style.background = 'var(--ga)'; btn.style.color = '#fff';
+    grid.querySelectorAll('.widget').forEach(w => w.setAttribute('draggable','true'));
+  } else {
+    grid.classList.remove('edit-mode');
+    btn.textContent = '⠿ Sắp xếp';
+    btn.style.background = ''; btn.style.color = '';
+    grid.querySelectorAll('.widget').forEach(w => w.setAttribute('draggable','false'));
+    saveWidgets();
+  }
+}
+
+function setWSize(id, size) {
+  const w = document.querySelector('.widget[data-id="' + id + '"]');
+  if (!w) return;
+  w.setAttribute('data-size', size);
+  w.querySelectorAll('.ws').forEach(b => b.classList.toggle('active', b.textContent === size));
+  saveWidgets();
+}
+
+function saveWidgets() {
+  const data = [...document.querySelectorAll('#widget-grid .widget')].map(w => ({
+    id: w.dataset.id, size: w.dataset.size
+  }));
+  try { localStorage.setItem('cv-widgets', JSON.stringify(data)); } catch(e) {}
+}
+
+function loadWidgets() {
+  try {
+    const data = JSON.parse(localStorage.getItem('cv-widgets') || 'null');
+    if (!data) return;
+    const grid = document.getElementById('widget-grid');
+    data.forEach(item => {
+      const w = document.querySelector('.widget[data-id="' + item.id + '"]');
+      if (w) { setWSize(item.id, item.size); grid.appendChild(w); }
+    });
+  } catch(e) {}
+}
+
+(function initWidgetDrag() {
+  const grid = document.getElementById('widget-grid');
+  if (!grid) return;
+
+  grid.addEventListener('dragstart', e => {
+    const w = e.target.closest('.widget');
+    if (!w || !_editMode) { e.preventDefault(); return; }
+    _dragSrc = w;
+    w.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', w.dataset.id);
+  });
+  grid.addEventListener('dragend', e => {
+    const w = e.target.closest('.widget');
+    if (w) w.classList.remove('dragging');
+    grid.querySelectorAll('.widget').forEach(x => x.classList.remove('drag-over'));
+    _dragSrc = null;
+  });
+  grid.addEventListener('dragover', e => {
+    e.preventDefault(); e.dataTransfer.dropEffect = 'move';
+    const w = e.target.closest('.widget');
+    if (w && w !== _dragSrc) {
+      grid.querySelectorAll('.widget').forEach(x => x.classList.remove('drag-over'));
+      w.classList.add('drag-over');
+    }
+  });
+  grid.addEventListener('dragleave', e => {
+    const w = e.target.closest('.widget');
+    if (w && !w.contains(e.relatedTarget)) w.classList.remove('drag-over');
+  });
+  grid.addEventListener('drop', e => {
+    e.preventDefault();
+    const target = e.target.closest('.widget');
+    if (!target || !_dragSrc || target === _dragSrc) return;
+    const widgets = [...grid.children];
+    const si = widgets.indexOf(_dragSrc), ti = widgets.indexOf(target);
+    grid.insertBefore(_dragSrc, si < ti ? target.nextSibling : target);
+    target.classList.remove('drag-over');
+    saveWidgets();
+  });
+})();
+
+loadWidgets();
+
 </script>
 
 <!-- ════════════════════════════════════════════
@@ -1059,6 +1226,95 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 
 /* ── Footer ── */
 .pfoot{margin-top:5pt;border-top:1pt solid #E2E8F0;padding-top:3pt;display:flex;justify-content:space-between;font-size:6pt;color:#CBD5E1}
+
+/* ═══ WIDGET GRID SYSTEM ═══ */
+#widget-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:start;margin-bottom:0}
+.widget{position:relative;transition:opacity .2s}
+.widget[data-size="S"]{grid-column:span 1}
+.widget[data-size="M"]{grid-column:span 2}
+.widget[data-size="L"]{grid-column:span 4}
+
+/* Widget control bar */
+.wctrl{
+  display:none;position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  z-index:200;background:var(--card);border:1.5px solid var(--p1);border-radius:20px;
+  padding:3px 8px;gap:5px;align-items:center;white-space:nowrap;
+  box-shadow:0 4px 16px rgba(0,0,0,.2);
+}
+.wdrag{font-size:14px;color:var(--p1);cursor:grab;padding:0 2px;line-height:1}
+.wlabel{font-size:9px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.4px;max-width:80px;overflow:hidden;text-overflow:ellipsis}
+.wsizes{display:flex;gap:2px}
+.ws{
+  width:20px;height:20px;border-radius:6px;border:1.5px solid var(--border);
+  background:var(--surface);font-size:9px;font-weight:800;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--sub);transition:all .15s;
+}
+.ws.active{background:var(--p1);color:#fff;border-color:var(--p1)}
+.ws:hover:not(.active){border-color:var(--p1);color:var(--p1)}
+
+/* Edit mode */
+@keyframes jiggle{
+  0%  {transform:rotate(-1.2deg) scale(1.005)}
+  100%{transform:rotate(1.2deg)  scale(1.005)}
+}
+#widget-grid.edit-mode .widget{
+  animation:jiggle .22s ease-in-out infinite alternate;
+  cursor:grab;
+}
+#widget-grid.edit-mode .widget:active{cursor:grabbing}
+#widget-grid.edit-mode .wctrl{display:flex}
+#widget-grid.edit-mode .widget.dragging{opacity:.35;animation:none}
+#widget-grid.edit-mode .widget.drag-over > .card,
+#widget-grid.edit-mode .widget.drag-over > div:not(.wctrl){
+  outline:2px dashed var(--p1);border-radius:16px;
+}
+
+/* S size: compact view */
+.widget[data-size="S"] .card{padding:14px 16px}
+.widget[data-size="S"] .sk-bar{display:none}
+.widget[data-size="S"] .sk-p{display:none}
+.widget[data-size="S"] .t-desc{display:none}
+.widget[data-size="S"] .ttags{display:none}
+.widget[data-size="S"] .t-dt{font-size:9px;padding:2px 6px}
+.widget[data-size="S"] .cert-org{display:none}
+.widget[data-size="S"] .cert-yr{display:none}
+.widget[data-size="S"] .cert:nth-child(n+4){display:none}
+.widget[data-size="S"] .edu-gpa{display:none}
+.widget[data-size="S"] .sumbox{display:none}
+.widget[data-size="S"] .goal p{display:none}
+.widget[data-size="S"] .str-list{display:none}
+.widget[data-size="S"] .tc-full{display:none}
+.widget[data-size="S"] .stars{font-size:8px}
+.widget[data-size="S"] .ri svg{width:58px;height:58px}
+.widget[data-size="S"] .radials{grid-template-columns:repeat(3,1fr)}
+.widget[data-size="S"] .int-grid{grid-template-columns:repeat(3,1fr)!important}
+.widget[data-size="S"] .tool-grid{grid-template-columns:repeat(2,1fr)!important}
+.widget[data-size="S"] .lr-sep{display:none}
+.widget[data-size="S"] .lang-row{flex-direction:column;gap:3px}
+.widget[data-size="S"] .tcon{height:16px}
+.widget[data-size="S"] .stats{grid-template-columns:1fr}
+.widget[data-size="S"] .sh h2{font-size:10px}
+
+/* L size: expanded */
+.widget[data-size="L"] .radials{grid-template-columns:repeat(6,1fr)}
+.widget[data-size="L"] .tool-grid{grid-template-columns:repeat(4,1fr)!important}
+.widget[data-size="L"] .int-grid{grid-template-columns:repeat(7,1fr)!important}
+.widget[data-size="L"] .stats{grid-template-columns:repeat(3,1fr)}
+.widget[data-size="L"] .skills{gap:12px}
+
+/* Responsive */
+@media(max-width:900px){
+  #widget-grid{grid-template-columns:repeat(2,1fr)}
+  .widget[data-size="S"]{grid-column:span 1}
+  .widget[data-size="M"]{grid-column:span 1}
+  .widget[data-size="L"]{grid-column:span 2}
+}
+@media(max-width:540px){
+  #widget-grid{grid-template-columns:1fr}
+  .widget[data-size="S"],.widget[data-size="M"],.widget[data-size="L"]{grid-column:span 1}
+}
+
 </style>
 
 <!-- HEADER -->
