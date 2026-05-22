@@ -449,7 +449,16 @@ body{
 @media print {
   html, body { margin: 0 !important; padding: 0 !important; }
   #lock, .page, #agectr { display: none !important; }
-  #pcv { display: flex !important; flex-direction: column; }
+  #pcv {
+    display: flex !important;
+    flex-direction: column;
+    height: 281mm !important;
+    overflow: hidden !important;
+    page-break-after: avoid !important;
+    page-break-before: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid-page !important;
+  }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }
 @page { size: A4 portrait; margin: 8mm 11mm; }
@@ -985,7 +994,7 @@ window.addEventListener('load', () => setTimeout(animateBars, 400));
 <div id="pcv">
 <style>
 #pcv{font-family:'Be Vietnam Pro',Arial,sans-serif;font-size:8pt;color:#1E293B;line-height:1.55;background:#fff;
-  width:100%;box-sizing:border-box;overflow:hidden;height:281mm}
+  width:100%;box-sizing:border-box}
 #pcv a{text-decoration:none;color:inherit}
 
 /* ── Header ── */
