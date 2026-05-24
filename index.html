@@ -525,17 +525,9 @@ a.aic{cursor:pointer}
   <div class="themes" style="margin-left:12px">
     <span class="thlabel">📐 Layout:</span>
     <button class="thbtn" id="lbtn-A" onclick="setLayout('A')" title="Sidebar Profile">A</button>
-    <button class="thbtn" id="lbtn-B" onclick="setLayout('B')" title="Banner Header">B</button>
-    <button class="thbtn" id="lbtn-C" onclick="setLayout('C')" title="Minimal Pro">C</button>
   </div>
   <div class="btnrow">
     <button id="edit-btn" class="btn btn-edit" onclick="toggleEditMode()">⠿ Sắp xếp</button>
-    <div class="rcols-ctrl">
-      <span class="thlabel">Cột phải:</span>
-      <button class="rcbtn" data-n="1" onclick="setRightCols(1)">1</button>
-      <button class="rcbtn active" data-n="2" onclick="setRightCols(2)">2</button>
-      <button class="rcbtn" data-n="3" onclick="setRightCols(3)">3</button>
-    </div>
     <button class="btn btn-print" onclick="window.print()">🖨️ In trang</button>
     <button class="btn btn-pdf"   onclick="savePDF()">📄 Xuất PDF</button>
   </div>
@@ -664,6 +656,9 @@ a.aic{cursor:pointer}
 </div>
 
 </div>
+
+<div id="col-divider" class="col-divider"><span class="cdiv-lbl"></span></div>
+<div id="right-section">
 
 <div class="cv-col" data-col="1">
 
@@ -981,358 +976,8 @@ a.aic{cursor:pointer}
 
 </div>
 </div>
-
-<div class="widget" data-id="skills" data-size="M">
-  <div class="wctrl">
-    <span class="wdrag">⠿</span>
-    <span class="wlabel">⚡ Kỹ năng</span>
-    <div class="wsizes">
-      <button class="ws" onclick="setWSize('skills','S')">S</button>
-      <button class="ws active" onclick="setWSize('skills','M')">M</button>
-      <button class="ws" onclick="setWSize('skills','L')">L</button>
-    </div>
-  </div>
-  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
-<div class="card">
-    <div class="sh"><div class="si" style="background:rgba(123,114,255,.15)">⚡</div><h2>Kỹ năng chuyên môn</h2></div>
-    <div class="skills">
-      <div><div class="sk-h"><span class="sk-n">ISO 9001:2015 / IATF 16949</span><span class="sk-p">92%</span></div><div class="sk-bar"><div class="sk-f" data-w="92" style="background:var(--gp);--d:.10s"></div></div></div>
-      <div><div class="sk-h"><span class="sk-n">Xây dựng hệ thống QMS</span><span class="sk-p">88%</span></div><div class="sk-bar"><div class="sk-f" data-w="88" style="background:var(--ga);--d:.18s"></div></div></div>
-      <div><div class="sk-h"><span class="sk-n">Đánh giá nội bộ (Internal Audit)</span><span class="sk-p">87%</span></div><div class="sk-bar"><div class="sk-f" data-w="87" style="background:var(--gy);--d:.24s"></div></div></div>
-      <div><div class="sk-h"><span class="sk-n">Kiểm soát chất lượng SPC/FMEA</span><span class="sk-p">80%</span></div><div class="sk-bar"><div class="sk-f" data-w="80" style="background:var(--gr);--d:.30s"></div></div></div>
-      <div><div class="sk-h"><span class="sk-n">Lean Manufacturing / 5S / Kaizen</span><span class="sk-p">83%</span></div><div class="sk-bar"><div class="sk-f" data-w="83" style="background:var(--gp);--d:.36s"></div></div></div>
-      <div><div class="sk-h"><span class="sk-n">Quản lý sản xuất (OEE, Takt time)</span><span class="sk-p">85%</span></div><div class="sk-bar"><div class="sk-f" data-w="85" style="background:var(--ga);--d:.42s"></div></div></div>
-      <div><div class="sk-h"><span class="sk-n">ERP / SAP / Excel nâng cao</span><span class="sk-p">75%</span></div><div class="sk-bar"><div class="sk-f" data-w="75" style="background:var(--gy);--d:.48s"></div></div></div>
-      <div><div class="sk-h"><span class="sk-n">AutoCAD 2D (Bản vẽ kỹ thuật)</span><span class="sk-p">70%</span></div><div class="sk-bar"><div class="sk-f" data-w="70" style="background:var(--gr);--d:.54s"></div></div></div>
-    </div>
-  </div>
 </div>
 
-<div class="widget" data-id="softskills" data-size="M">
-  <div class="wctrl">
-    <span class="wdrag">⠿</span>
-    <span class="wlabel">🧠 Kỹ năng mềm</span>
-    <div class="wsizes">
-      <button class="ws" onclick="setWSize('softskills','S')">S</button>
-      <button class="ws active" onclick="setWSize('softskills','M')">M</button>
-      <button class="ws" onclick="setWSize('softskills','L')">L</button>
-    </div>
-  </div>
-  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
-<div class="card">
-    <div class="sh"><div class="si" style="background:rgba(255,208,96,.12)">🧠</div><h2>Kỹ năng mềm</h2></div>
-    <div class="radials">
-      <div class="ri">
-        <svg viewBox="0 0 88 88">
-          <circle class="rbg" cx="44" cy="44" r="33"/>
-          <circle class="rfg" cx="44" cy="44" r="33" stroke="url(#g1)" stroke-dasharray="187 207"/>
-          <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#7B72FF"/><stop offset="100%" stop-color="#B06EFF"/></linearGradient></defs>
-          <text class="r-pct" x="44" y="41" text-anchor="middle" font-family="inherit" font-size="13" font-weight="800">90%</text>
-          <text class="r-lbl" x="44" y="54" text-anchor="middle" font-family="inherit" font-size="7">Phân tích</text>
-        </svg>
-        <div class="ri-n">Phân tích vấn đề</div>
-      </div>
-      <div class="ri">
-        <svg viewBox="0 0 88 88">
-          <circle class="rbg" cx="44" cy="44" r="33"/>
-          <circle class="rfg" cx="44" cy="44" r="33" stroke="url(#g2)" stroke-dasharray="181 207"/>
-          <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#36F5A6"/><stop offset="100%" stop-color="#00D4FF"/></linearGradient></defs>
-          <text class="r-pct" x="44" y="41" text-anchor="middle" font-family="inherit" font-size="13" font-weight="800">88%</text>
-          <text class="r-lbl" x="44" y="54" text-anchor="middle" font-family="inherit" font-size="7">Đào tạo</text>
-        </svg>
-        <div class="ri-n">Đào tạo nội bộ</div>
-      </div>
-      <div class="ri">
-        <svg viewBox="0 0 88 88">
-          <circle class="rbg" cx="44" cy="44" r="33"/>
-          <circle class="rfg" cx="44" cy="44" r="33" stroke="url(#g3)" stroke-dasharray="175 207"/>
-          <defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FFD060"/><stop offset="100%" stop-color="#FF9040"/></linearGradient></defs>
-          <text class="r-pct" x="44" y="41" text-anchor="middle" font-family="inherit" font-size="13" font-weight="800">85%</text>
-          <text class="r-lbl" x="44" y="54" text-anchor="middle" font-family="inherit" font-size="7">Lãnh đạo</text>
-        </svg>
-        <div class="ri-n">Lãnh đạo tổ SX</div>
-      </div>
-      <div class="ri">
-        <svg viewBox="0 0 88 88">
-          <circle class="rbg" cx="44" cy="44" r="33"/>
-          <circle class="rfg" cx="44" cy="44" r="33" stroke="url(#g4)" stroke-dasharray="179 207"/>
-          <defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FF5E7E"/><stop offset="100%" stop-color="#FF8060"/></linearGradient></defs>
-          <text class="r-pct" x="44" y="41" text-anchor="middle" font-family="inherit" font-size="13" font-weight="800">87%</text>
-          <text class="r-lbl" x="44" y="54" text-anchor="middle" font-family="inherit" font-size="7">Tổ chức</text>
-        </svg>
-        <div class="ri-n">Tổ chức công việc</div>
-      </div>
-      <div class="ri">
-        <svg viewBox="0 0 88 88">
-          <circle class="rbg" cx="44" cy="44" r="33"/>
-          <circle class="rfg" cx="44" cy="44" r="33" stroke="url(#g5)" stroke-dasharray="169 207"/>
-          <defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#7B72FF"/><stop offset="100%" stop-color="#36F5A6"/></linearGradient></defs>
-          <text class="r-pct" x="44" y="41" text-anchor="middle" font-family="inherit" font-size="13" font-weight="800">82%</text>
-          <text class="r-lbl" x="44" y="54" text-anchor="middle" font-family="inherit" font-size="7">Giao tiếp</text>
-        </svg>
-        <div class="ri-n">Giao tiếp</div>
-      </div>
-      <div class="ri">
-        <svg viewBox="0 0 88 88">
-          <circle class="rbg" cx="44" cy="44" r="33"/>
-          <circle class="rfg" cx="44" cy="44" r="33" stroke="url(#g6)" stroke-dasharray="173 207"/>
-          <defs><linearGradient id="g6" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#818CF8"/></linearGradient></defs>
-          <text class="r-pct" x="44" y="41" text-anchor="middle" font-family="inherit" font-size="13" font-weight="800">84%</text>
-          <text class="r-lbl" x="44" y="54" text-anchor="middle" font-family="inherit" font-size="7">Ra quyết định</text>
-        </svg>
-        <div class="ri-n">Ra quyết định</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="widget" data-id="edu" data-size="M">
-  <div class="wctrl">
-    <span class="wdrag">⠿</span>
-    <span class="wlabel">🎓 Học vấn</span>
-    <div class="wsizes">
-      <button class="ws" onclick="setWSize('edu','S')">S</button>
-      <button class="ws active" onclick="setWSize('edu','M')">M</button>
-      <button class="ws" onclick="setWSize('edu','L')">L</button>
-    </div>
-  </div>
-  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
-<div class="card">
-    <div class="sh"><div class="si" style="background:rgba(255,94,126,.1)">🎓</div><h2>Học vấn</h2></div>
-    <div class="edu">
-      <div class="edu-ico">🏛️</div>
-      <div class="edu-info">
-        <h3>Kỹ sư Kỹ thuật Cơ khí</h3>
-        <div class="edu-school">ĐH Kỹ thuật Công nghiệp Thái Nguyên (TNUT)</div>
-        <div class="edu-yr">2007 – 2012</div>
-      </div>
-      <div class="edu-gpa"><div class="gn">3.0</div><div class="gl">GPA / 4.0</div></div>
-    </div>
-  </div>
-</div>
-
-<div class="widget" data-id="certs" data-size="M">
-  <div class="wctrl">
-    <span class="wdrag">⠿</span>
-    <span class="wlabel">🏆 Chứng chỉ</span>
-    <div class="wsizes">
-      <button class="ws" onclick="setWSize('certs','S')">S</button>
-      <button class="ws active" onclick="setWSize('certs','M')">M</button>
-      <button class="ws" onclick="setWSize('certs','L')">L</button>
-    </div>
-  </div>
-  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
-<div class="card">
-    <div class="sh"><div class="si" style="background:rgba(255,208,96,.12)">🏆</div><h2>Chứng chỉ</h2></div>
-    <div class="cert-list">
-      <div class="cert">
-        <span class="cert-ico">🎖️</span>
-        <div class="cert-info"><div class="cert-name">IATF 16949:2016 Internal Auditor</div><div class="cert-org">Sanwa Việt Nam</div></div>
-        <span class="cert-ok">Đã có</span><span class="cert-yr">04/2026</span>
-      </div>
-      <div class="cert">
-        <span class="cert-ico">✅</span>
-        <div class="cert-info"><div class="cert-name">ISO 9001:2015 Internal Auditor</div><div class="cert-org">Sanwa Việt Nam</div></div>
-        <span class="cert-ok">Đã có</span><span class="cert-yr">04/2026</span>
-      </div>
-      <div class="cert">
-        <span class="cert-ico">🌿</span>
-        <div class="cert-info"><div class="cert-name">ISO 14001:2015 Internal Auditor</div><div class="cert-org">Sanwa Việt Nam</div></div>
-        <span class="cert-ok">Đã có</span><span class="cert-yr">04/2026</span>
-      </div>
-      <div class="cert">
-        <span class="cert-ico">🛠️</span>
-        <div class="cert-info"><div class="cert-name">IATF 6 Core Tools Certificate</div><div class="cert-org">APQP · PPAP · FMEA · SPC · MSA · Control Plan</div></div>
-        <span class="cert-plan">Dự kiến</span><span class="cert-yr">08/2026</span>
-      </div>
-      <div class="cert">
-        <span class="cert-ico">🔐</span>
-        <div class="cert-info"><div class="cert-name">ISO 27001 Internal Auditor</div><div class="cert-org">Bảo mật thông tin</div></div>
-        <span class="cert-plan">Dự kiến</span><span class="cert-yr">10/2026</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="widget" data-id="lang" data-size="S">
-  <div class="wctrl">
-    <span class="wdrag">⠿</span>
-    <span class="wlabel">🌍 Ngôn ngữ</span>
-    <div class="wsizes">
-      <button class="ws active" onclick="setWSize('lang','S')">S</button>
-      <button class="ws" onclick="setWSize('lang','M')">M</button>
-      <button class="ws" onclick="setWSize('lang','L')">L</button>
-    </div>
-  </div>
-  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
-<div class="card">
-    <div class="sh"><div class="si" style="background:rgba(123,114,255,.12)">🌍</div><h2>Ngôn ngữ</h2></div>
-    <div class="lang-row">
-      <span class="lr-item">🇻🇳 <strong>Tiếng Việt</strong> <em>Bản ngữ</em></span>
-      <span class="lr-sep">·</span>
-      <span class="lr-item">🇬🇧 <strong>English</strong> <em>B1</em></span>
-      <span class="lr-sep">·</span>
-      <span class="lr-item">🇯🇵 <strong>日本語</strong> <em>Cơ bản</em></span>
-      <span class="lr-sep">·</span>
-      <span class="lr-item">🇰🇷 <strong>한국어</strong> <em>Cơ bản</em></span>
-    </div>
-  </div>
-</div>
-
-<div class="widget" data-id="tools" data-size="M">
-  <div class="wctrl">
-    <span class="wdrag">⠿</span>
-    <span class="wlabel">🛠️ Công cụ CL</span>
-    <div class="wsizes">
-      <button class="ws" onclick="setWSize('tools','S')">S</button>
-      <button class="ws active" onclick="setWSize('tools','M')">M</button>
-      <button class="ws" onclick="setWSize('tools','L')">L</button>
-    </div>
-  </div>
-  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
-<div class="card">
-    <div class="sh"><div class="si" style="background:rgba(54,245,166,.1)">🛠️</div><h2>Công cụ chất lượng & Core Tools</h2></div>
-    <div class="tool-grid" style="grid-template-columns:repeat(2,1fr)">
-      <div class="tc"><div class="tc-ico">📋</div><div class="tc-n">APQP</div><div class="tc-full">Advanced Product Quality Planning</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
-      <div class="tc"><div class="tc-ico">📦</div><div class="tc-n">PPAP</div><div class="tc-full">Production Part Approval Process</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
-      <div class="tc"><div class="tc-ico">⚠️</div><div class="tc-n">FMEA</div><div class="tc-full">Failure Mode & Effects Analysis</div><div class="stars">⭐⭐⭐⭐☆</div></div>
-      <div class="tc"><div class="tc-ico">📊</div><div class="tc-n">SPC</div><div class="tc-full">Statistical Process Control</div><div class="stars">⭐⭐⭐⭐☆</div></div>
-      <div class="tc"><div class="tc-ico">📐</div><div class="tc-n">Control Plan</div><div class="tc-full">Kế hoạch kiểm soát quá trình</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
-      <div class="tc"><div class="tc-ico">🔬</div><div class="tc-n">MSA</div><div class="tc-full">Measurement System Analysis</div><div class="stars">⭐⭐⭐☆☆</div></div>
-      <div class="tc"><div class="tc-ico">🐟</div><div class="tc-n">8D / Fishbone</div><div class="tc-full">8D Problem Solving & Ishikawa</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
-      <div class="tc"><div class="tc-ico">🗺️</div><div class="tc-n">VSM / Kaizen</div><div class="tc-full">Value Stream Mapping & Cải tiến</div><div class="stars">⭐⭐⭐⭐☆</div></div>
-    </div>
-  </div>
-</div>
-
-<div class="widget" data-id="interests" data-size="S">
-  <div class="wctrl">
-    <span class="wdrag">⠿</span>
-    <span class="wlabel">🎯 Sở thích</span>
-    <div class="wsizes">
-      <button class="ws active" onclick="setWSize('interests','S')">S</button>
-      <button class="ws" onclick="setWSize('interests','M')">M</button>
-      <button class="ws" onclick="setWSize('interests','L')">L</button>
-    </div>
-  </div>
-  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
-<div class="card">
-    <div class="sh"><div class="si" style="background:rgba(255,94,126,.1)">🎯</div><h2>Sở thích</h2></div>
-    <div class="int-grid" style="grid-template-columns:repeat(2,1fr)">
-      <div class="ii"><span class="ii-ico">📖</span><span class="ii-n">Tiên hiệp</span></div>
-      <div class="ii"><span class="ii-ico">🔍</span><span class="ii-n">Mày mò cái mới</span></div>
-      <div class="ii"><span class="ii-ico">🤖</span><span class="ii-n">AI vào công việc</span></div>
-      <div class="ii"><span class="ii-ico">😴</span><span class="ii-n">Thích ngủ</span></div>
-      <div class="ii"><span class="ii-ico">📸</span><span class="ii-n">Chụp ảnh</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="widget" data-id="goal" data-size="M">
-  <div class="wctrl">
-    <span class="wdrag">⠿</span>
-    <span class="wlabel">🎯 Mục tiêu</span>
-    <div class="wsizes">
-      <button class="ws" onclick="setWSize('goal','S')">S</button>
-      <button class="ws active" onclick="setWSize('goal','M')">M</button>
-      <button class="ws" onclick="setWSize('goal','L')">L</button>
-    </div>
-  </div>
-  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
-<div class="card">
-    <div class="sh"><div class="si" style="background:rgba(54,245,166,.1)">🎯</div><h2>Mục tiêu nghề nghiệp</h2></div>
-    <div class="goal">
-      <div class="goal-title">🚀 Định hướng 1–2 năm tới</div>
-      <p>Từ nền tảng 11 năm tại <strong>Sanwa Việt Nam</strong>, hướng đến vị trí <strong>QMS Manager</strong> hoặc <strong>Production Manager</strong> tại doanh nghiệp FDI cơ khí / điện tử tại khu công nghiệp <strong>Bắc Ninh – Bắc Giang</strong>.<br><br>Lộ trình chứng chỉ 2026: hoàn thành <strong>6 Core Tools (08/2026)</strong> và <strong>ISO 27001 Internal Auditor (10/2026)</strong>. Ứng dụng <strong>AI vào công việc</strong> để tăng hiệu quả quản lý tài liệu và phân tích dữ liệu chất lượng.</p>
-    </div>
-  </div>
-</div>
-
-<div class="widget" data-id="strengths" data-size="M">
-  <div class="wctrl">
-    <span class="wdrag">⠿</span>
-    <span class="wlabel">💡 Điểm mạnh</span>
-    <div class="wsizes">
-      <button class="ws" onclick="setWSize('strengths','S')">S</button>
-      <button class="ws active" onclick="setWSize('strengths','M')">M</button>
-      <button class="ws" onclick="setWSize('strengths','L')">L</button>
-    </div>
-  </div>
-  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
-<div class="card">
-    <div class="sh"><div class="si" style="background:rgba(255,208,96,.1)">💡</div><h2>Điểm mạnh nổi bật</h2></div>
-    <div class="str-list">
-      <div class="str-item"><span class="str-check">✓</span><span class="str-text"><strong>11+ năm gắn bó Sanwa Việt Nam</strong> – am hiểu sâu văn hóa sản xuất Nhật Bản, kỷ luật công xưởng và hệ thống quản lý chất lượng nội bộ</span></div>
-      <div class="str-item"><span class="str-check">✓</span><span class="str-text">Hiểu cả 2 phía: <strong>vận hành sản xuất thực tế</strong> lẫn <strong>hệ thống ISO/IATF</strong> – lợi thế ít Giám sát nào có được</span></div>
-      <div class="str-item"><span class="str-check">✓</span><span class="str-text"><strong>Hồ sơ BHXH sạch</strong> – 12 năm 9 tháng, 0 tháng chậm đóng, thể hiện sự ổn định và uy tín nghề nghiệp</span></div>
-      <div class="str-item"><span class="str-check">✓</span><span class="str-text">Kỹ sư Cơ khí – nền tảng kỹ thuật vững chắc từ ĐH Kỹ thuật Công nghiệp Thái Nguyên, có kinh nghiệm lập kế hoạch bảo trì &amp; quyết toán từ đầu sự nghiệp</span></div>
-    </div>
-  </div>
-</div>
-
-<div class="widget" data-id="exp" data-size="L">
-  <div class="wctrl">
-    <span class="wdrag">⠿</span>
-    <span class="wlabel">💼 Kinh nghiệm</span>
-    <div class="wsizes">
-      <button class="ws" onclick="setWSize('exp','S')">S</button>
-      <button class="ws" onclick="setWSize('exp','M')">M</button>
-      <button class="ws active" onclick="setWSize('exp','L')">L</button>
-    </div>
-  </div>
-  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
-<div class="card">
-    <div class="sh"><div class="si" style="background:rgba(54,245,166,.12)">💼</div><h2>Kinh nghiệm làm việc</h2></div>
-    <div class="tl">
-      <div class="ti">
-        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
-        <div>
-          <div class="tt">
-            <div><div class="t-title">Phụ trách ISO 9001 / 14001 / IATF 16949</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
-            <span class="t-dt">04/2026 – Nay</span>
-          </div>
-          <p class="t-desc">Chuyên trách xây dựng, duy trì và cải tiến hệ thống quản lý tích hợp ISO 9001:2015 / ISO 14001:2015 / IATF 16949:2016. Lập kế hoạch và thực hiện đánh giá nội bộ (Internal Audit), xử lý NCR, theo dõi CAPA và chuẩn bị hồ sơ phối hợp đánh giá cấp chứng nhận bên ngoài.</p>
-          <div class="ttags"><span class="ttag">ISO 9001</span><span class="ttag">ISO 14001</span><span class="ttag">IATF 16949</span><span class="ttag">Internal Audit</span><span class="ttag">CAPA / NCR</span><span class="ttag">Document Control</span></div>
-        </div>
-      </div>
-      <div class="ti">
-        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
-        <div>
-          <div class="tt">
-            <div><div class="t-title">Giám sát Sản xuất</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
-            <span class="t-dt">01/2021 – 03/2026</span>
-          </div>
-          <p class="t-desc">Vị trí Giám sát sản xuất – cấp dưới Trưởng phòng, quản lý trực tiếp toàn bộ hoạt động ca làm việc: <strong>tính toán và lập kế hoạch sản xuất</strong> theo đơn hàng; <strong>sắp xếp nhân sự</strong>, phân công công việc phù hợp năng lực từng người; <strong>theo dõi các chỉ số</strong> sản lượng, chất lượng, OEE theo ca; <strong>điều chỉnh</strong> kịp thời khi phát sinh sự cố hoặc lệch kế hoạch. Đào tạo nhân viên mới và duy trì kỷ luật 5S.</p>
-          <div class="ttags"><span class="ttag">Giám sát SX</span><span class="ttag">Kế hoạch SX</span><span class="ttag">Quản lý nhân sự</span><span class="ttag">Phân công CV</span><span class="ttag">KPI / OEE</span><span class="ttag">5S</span></div>
-        </div>
-      </div>
-      <div class="ti">
-        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
-        <div>
-          <div class="tt">
-            <div><div class="t-title">Nhân viên Sản xuất</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
-            <span class="t-dt">09/2014 – 12/2020</span>
-          </div>
-          <p class="t-desc">Bắt đầu từ nhân viên sản xuất, làm quen và thành thạo hệ thống sản xuất Nhật Bản. Từng bước nắm vững quy trình, kỷ luật 5S và tiêu chuẩn chất lượng. Được đề bạt lên Giám sát sau 6+ năm.</p>
-          <div class="ttags"><span class="ttag">Sản xuất Nhật Bản</span><span class="ttag">5S</span><span class="ttag">Kiểm soát chất lượng</span></div>
-        </div>
-      </div>
-      <div class="ti">
-        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
-        <div>
-          <div class="tt">
-            <div><div class="t-title">Kỹ sư Kỹ thuật</div><div class="t-co">⛏️ Cty TNHH MTV Kim loại màu Bắc Kạn</div></div>
-            <span class="t-dt">10/2012 – 09/2013</span>
-          </div>
-          <p class="t-desc">Vị trí đầu tiên sau tốt nghiệp tại nhà máy luyện kim màu. Lập kế hoạch bảo trì, bảo dưỡng định kỳ và sửa chữa lớn cho hệ thống thiết bị công nghiệp; xây dựng và quản lý hồ sơ kỹ thuật, quyết toán công trình sửa chữa theo quy định.</p>
-          <div class="ttags"><span class="ttag">Kế hoạch bảo trì</span><span class="ttag">Bảo dưỡng thiết bị</span><span class="ttag">Sửa chữa lớn</span><span class="ttag">Hồ sơ quyết toán</span><span class="ttag">Luyện kim màu</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-</div>
 <!-- ═══ FOOTER ═══ -->
 <div class="footer">
   <div class="fbar"></div>
@@ -1513,7 +1158,6 @@ function setRightCols(n) {
     const hiddenCol = cols.querySelector('.cv-col[data-col="' + ci + '"]');
     if (hiddenCol) [...hiddenCol.querySelectorAll('.widget')].forEach(w => lastVisible.appendChild(w));
   }
-  document.querySelectorAll('.rcbtn').forEach(b => b.classList.toggle('active', parseInt(b.dataset.n) === n));
   saveWidgets();
 }
 
@@ -1561,7 +1205,6 @@ function loadWidgets() {
     const cont = _getColumns();
     if (!cont) return;
     cont.setAttribute('data-right', _rightCols);
-    document.querySelectorAll('.rcbtn').forEach(b => b.classList.toggle('active', parseInt(b.dataset.n) === _rightCols));
     (data.cols || []).forEach(colData => {
       const col = cont.querySelector('.cv-col[data-col="' + colData.col + '"]');
       if (!col) return;
@@ -1660,6 +1303,62 @@ function loadWidgets() {
   });
 })();
 
+/* Drag divider to change left:right ratio */
+(function initDividerResize() {
+  const divider = document.getElementById('col-divider');
+  const lbl = divider ? divider.querySelector('.cdiv-lbl') : null;
+  if (!divider) return;
+  divider.addEventListener('mousedown', function(e) {
+    e.preventDefault();
+    const container = _getColumns();
+    if (!container) return;
+    divider.classList.add('dragging');
+    let lastN = _rightCols;
+    function onMove(me) {
+      const rect = container.getBoundingClientRect();
+      const rel = (me.clientX - rect.left) / rect.width;
+      let n;
+      if      (rel < 0.30) n = 3;
+      else if (rel < 0.42) n = 2;
+      else                 n = 1;
+      if (lbl) lbl.textContent = '1:' + n;
+      if (n !== lastN) { lastN = n; setRightCols(n); }
+    }
+    function onUp() {
+      divider.classList.remove('dragging');
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+    }
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  });
+  /* touch support */
+  divider.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    const container = _getColumns();
+    if (!container) return;
+    divider.classList.add('dragging');
+    let lastN = _rightCols;
+    function onMove(te) {
+      const rect = container.getBoundingClientRect();
+      const rel = (te.touches[0].clientX - rect.left) / rect.width;
+      let n;
+      if      (rel < 0.30) n = 3;
+      else if (rel < 0.42) n = 2;
+      else                 n = 1;
+      if (lbl) lbl.textContent = '1:' + n;
+      if (n !== lastN) { lastN = n; setRightCols(n); }
+    }
+    function onEnd() {
+      divider.classList.remove('dragging');
+      document.removeEventListener('touchmove', onMove);
+      document.removeEventListener('touchend', onEnd);
+    }
+    document.addEventListener('touchmove', onMove, {passive:false});
+    document.addEventListener('touchend', onEnd);
+  }, {passive:false});
+})();
+
 loadWidgets();
 
 </script>
@@ -1739,26 +1438,28 @@ loadWidgets();
 /* ── Footer ── */
 .pfoot{margin-top:5pt;border-top:1pt solid #E2E8F0;padding-top:3pt;display:flex;justify-content:space-between;font-size:6pt;color:#CBD5E1}
 
-/* ═══ WIDGET GRID SYSTEM ═══ */
 /* ═══ COLUMN LAYOUT SYSTEM ═══ */
-#cv-columns{display:flex;gap:16px;align-items:start;margin-bottom:0}
+#cv-columns{display:flex;gap:0;align-items:start;margin-bottom:0}
+.cv-col[data-col="0"]{flex:1;display:flex;flex-direction:column;gap:14px;min-width:120px}
 .cv-col{flex:1;display:flex;flex-direction:column;gap:14px;min-width:0}
 
-/* Hide extra right columns based on data-right */
+/* Drag divider between left and right */
+.col-divider{width:18px;flex-shrink:0;cursor:col-resize;position:relative;align-self:stretch;display:flex;align-items:center;justify-content:center;z-index:10;user-select:none}
+.col-divider::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:4px;height:48px;border-radius:3px;background:var(--border);transition:background .15s,opacity .15s;opacity:.45}
+.col-divider:hover::after,.col-divider.dragging::after{background:var(--p1);opacity:1}
+.cdiv-lbl{position:absolute;top:calc(50% - 34px);left:50%;transform:translateX(-50%);background:var(--p1);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .12s}
+.col-divider.dragging .cdiv-lbl{opacity:1}
+
+/* Right section: flex grows based on number of right columns */
+#right-section{display:flex;gap:16px;align-items:start}
+#cv-columns[data-right="1"] #right-section{flex:1}
+#cv-columns[data-right="2"] #right-section{flex:2}
+#cv-columns[data-right="3"] #right-section{flex:3}
+
+/* Hide extra right columns */
 #cv-columns[data-right="1"] .cv-col[data-col="2"],
 #cv-columns[data-right="1"] .cv-col[data-col="3"],
 #cv-columns[data-right="2"] .cv-col[data-col="3"]{display:none}
-
-/* Right-column count buttons */
-.rcols-ctrl{display:flex;align-items:center;gap:4px}
-.rcbtn{
-  width:24px;height:24px;border-radius:6px;border:1.5px solid var(--border);
-  background:var(--surface);font-size:11px;font-weight:800;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--sub);transition:all .15s;
-}
-.rcbtn.active{background:var(--p1);color:#fff;border-color:var(--p1)}
-.rcbtn:hover:not(.active){border-color:var(--p1);color:var(--p1)}
 
 /* Widget */
 .widget{position:relative;transition:opacity .2s}
@@ -1845,6 +1546,8 @@ loadWidgets();
 /* Responsive */
 @media(max-width:800px){
   #cv-columns{flex-direction:column}
+  .col-divider{display:none}
+  #right-section{flex:1;flex-direction:column}
   .cv-col{width:100%}
   #cv-columns[data-right="1"] .cv-col[data-col="2"],
   #cv-columns[data-right="1"] .cv-col[data-col="3"],
