@@ -606,6 +606,7 @@ a.aic{cursor:pointer}
     <div class="stat"><span class="si2">📋</span><span class="sn">5</span><span class="sl">Năm Giám sát SX</span></div>
   </div>
 </div>
+</div>
 
 <div class="widget" data-id="lang" data-size="S">
   <div class="wctrl">
@@ -1439,19 +1440,19 @@ loadWidgets();
 .pfoot{margin-top:5pt;border-top:1pt solid #E2E8F0;padding-top:3pt;display:flex;justify-content:space-between;font-size:6pt;color:#CBD5E1}
 
 /* ═══ COLUMN LAYOUT SYSTEM ═══ */
-#cv-columns{display:flex;gap:0;align-items:start;margin-bottom:0}
-.cv-col[data-col="0"]{flex:1;display:flex;flex-direction:column;gap:14px;min-width:120px}
+#cv-columns{display:flex;gap:0;align-items:stretch;margin-bottom:0}
+.cv-col[data-col="0"]{flex:1;display:flex;flex-direction:column;gap:14px;min-width:120px;align-self:flex-start}
 .cv-col{flex:1;display:flex;flex-direction:column;gap:14px;min-width:0}
 
-/* Drag divider between left and right */
-.col-divider{width:18px;flex-shrink:0;cursor:col-resize;position:relative;align-self:stretch;display:flex;align-items:center;justify-content:center;z-index:10;user-select:none}
-.col-divider::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:4px;height:48px;border-radius:3px;background:var(--border);transition:background .15s,opacity .15s;opacity:.45}
-.col-divider:hover::after,.col-divider.dragging::after{background:var(--p1);opacity:1}
-.cdiv-lbl{position:absolute;top:calc(50% - 34px);left:50%;transform:translateX(-50%);background:var(--p1);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .12s}
+/* Drag divider between left and right — stretches full height for easy grabbing */
+.col-divider{width:20px;flex-shrink:0;cursor:col-resize;position:relative;z-index:10;user-select:none}
+.col-divider::after{content:'';position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:3px;border-radius:2px;background:var(--border);opacity:.25;transition:background .15s,opacity .15s}
+.col-divider:hover::after,.col-divider.dragging::after{background:var(--p1);opacity:.9}
+.cdiv-lbl{position:sticky;top:50%;left:50%;transform:translate(-50%,-50%);display:inline-block;background:var(--p1);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .12s;margin-left:-20px}
 .col-divider.dragging .cdiv-lbl{opacity:1}
 
 /* Right section: flex grows based on number of right columns */
-#right-section{display:flex;gap:16px;align-items:start}
+#right-section{display:flex;gap:16px;align-items:start;align-self:flex-start}
 #cv-columns[data-right="1"] #right-section{flex:1}
 #cv-columns[data-right="2"] #right-section{flex:2}
 #cv-columns[data-right="3"] #right-section{flex:3}
