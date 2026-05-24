@@ -658,7 +658,14 @@ a.aic{cursor:pointer}
 
 </div>
 
-<div id="col-divider" class="col-divider"><span class="cdiv-lbl"></span></div>
+<div id="col-divider" class="col-divider">
+  <div class="cdiv-dots">
+    <div class="cdiv-dot" data-n="1" onclick="setRightCols(1)" title="1:1"></div>
+    <div class="cdiv-dot active" data-n="2" onclick="setRightCols(2)" title="1:2"></div>
+    <div class="cdiv-dot" data-n="3" onclick="setRightCols(3)" title="1:3"></div>
+  </div>
+  <span class="cdiv-lbl"></span>
+</div>
 <div id="right-section">
 
 <div class="cv-col" data-col="1">
@@ -1159,6 +1166,7 @@ function setRightCols(n) {
     const hiddenCol = cols.querySelector('.cv-col[data-col="' + ci + '"]');
     if (hiddenCol) [...hiddenCol.querySelectorAll('.widget')].forEach(w => lastVisible.appendChild(w));
   }
+  document.querySelectorAll('.cdiv-dot').forEach(d => d.classList.toggle('active', +d.dataset.n === n));
   saveWidgets();
 }
 
@@ -1218,6 +1226,7 @@ function loadWidgets() {
         col.appendChild(w);
       });
     });
+    document.querySelectorAll('.cdiv-dot').forEach(d => d.classList.toggle('active', +d.dataset.n === _rightCols));
   } catch(e) {}
 }
 
@@ -1304,54 +1313,60 @@ function loadWidgets() {
   });
 })();
 
-/* Drag divider to change left:right ratio */
+/* Drag divider to change left:right ratio — snap on release to avoid oscillation */
 (function initDividerResize() {
   const divider = document.getElementById('col-divider');
   const lbl = divider ? divider.querySelector('.cdiv-lbl') : null;
   if (!divider) return;
+
+  function snapN(rel) {
+    if (rel < 0.28) return 3;
+    if (rel < 0.50) return 2;
+    return 1;
+  }
+
   divider.addEventListener('mousedown', function(e) {
+    if (e.target.closest('.cdiv-dot,.cdiv-dots')) return; /* let dot clicks through */
     e.preventDefault();
     const container = _getColumns();
     if (!container) return;
     divider.classList.add('dragging');
-    let lastN = _rightCols;
     function onMove(me) {
       const rect = container.getBoundingClientRect();
       const rel = (me.clientX - rect.left) / rect.width;
-      let n;
-      if      (rel < 0.30) n = 3;
-      else if (rel < 0.42) n = 2;
-      else                 n = 1;
+      const n = snapN(rel);
       if (lbl) lbl.textContent = '1:' + n;
-      if (n !== lastN) { lastN = n; setRightCols(n); }
     }
-    function onUp() {
+    function onUp(me) {
       divider.classList.remove('dragging');
+      const rect = container.getBoundingClientRect();
+      const rel = (me.clientX - rect.left) / rect.width;
+      setRightCols(snapN(rel));
       document.removeEventListener('mousemove', onMove);
       document.removeEventListener('mouseup', onUp);
     }
     document.addEventListener('mousemove', onMove);
     document.addEventListener('mouseup', onUp);
   });
+
   /* touch support */
   divider.addEventListener('touchstart', function(e) {
+    if (e.target.closest('.cdiv-dot,.cdiv-dots')) return;
     e.preventDefault();
     const container = _getColumns();
     if (!container) return;
     divider.classList.add('dragging');
-    let lastN = _rightCols;
     function onMove(te) {
       const rect = container.getBoundingClientRect();
       const rel = (te.touches[0].clientX - rect.left) / rect.width;
-      let n;
-      if      (rel < 0.30) n = 3;
-      else if (rel < 0.42) n = 2;
-      else                 n = 1;
-      if (lbl) lbl.textContent = '1:' + n;
-      if (n !== lastN) { lastN = n; setRightCols(n); }
+      if (lbl) lbl.textContent = '1:' + snapN(rel);
     }
-    function onEnd() {
+    function onEnd(te) {
       divider.classList.remove('dragging');
+      const t = te.changedTouches[0];
+      const rect = container.getBoundingClientRect();
+      const rel = (t.clientX - rect.left) / rect.width;
+      setRightCols(snapN(rel));
       document.removeEventListener('touchmove', onMove);
       document.removeEventListener('touchend', onEnd);
     }
@@ -1445,10 +1460,14 @@ loadWidgets();
 .cv-col{flex:1;display:flex;flex-direction:column;gap:14px;min-width:0}
 
 /* Drag divider between left and right — stretches full height for easy grabbing */
-.col-divider{width:20px;flex-shrink:0;cursor:col-resize;position:relative;z-index:10;user-select:none}
+.col-divider{width:28px;flex-shrink:0;cursor:col-resize;position:relative;z-index:10;user-select:none}
 .col-divider::after{content:'';position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:3px;border-radius:2px;background:var(--border);opacity:.25;transition:background .15s,opacity .15s}
 .col-divider:hover::after,.col-divider.dragging::after{background:var(--p1);opacity:.9}
-.cdiv-lbl{position:sticky;top:50%;left:50%;transform:translate(-50%,-50%);display:inline-block;background:var(--p1);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .12s;margin-left:-20px}
+.cdiv-dots{position:sticky;top:50%;display:flex;flex-direction:column;align-items:center;gap:5px;transform:translateY(-50%);padding:6px 0}
+.cdiv-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .15s,transform .15s;flex-shrink:0}
+.cdiv-dot:hover{background:var(--p1);transform:scale(1.3)}
+.cdiv-dot.active{background:var(--p1);transform:scale(1.25)}
+.cdiv-lbl{position:sticky;top:calc(50% + 60px);left:50%;transform:translate(-50%,-50%);display:inline-block;background:var(--p1);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .12s;margin-left:-20px}
 .col-divider.dragging .cdiv-lbl{opacity:1}
 
 /* Right section: flex grows based on number of right columns */
