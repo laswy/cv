@@ -530,6 +530,12 @@ a.aic{cursor:pointer}
   </div>
   <div class="btnrow">
     <button id="edit-btn" class="btn btn-edit" onclick="toggleEditMode()">⠿ Sắp xếp</button>
+    <div class="rcols-ctrl">
+      <span class="thlabel">Cột phải:</span>
+      <button class="rcbtn" data-n="1" onclick="setRightCols(1)">1</button>
+      <button class="rcbtn active" data-n="2" onclick="setRightCols(2)">2</button>
+      <button class="rcbtn" data-n="3" onclick="setRightCols(3)">3</button>
+    </div>
     <button class="btn btn-print" onclick="window.print()">🖨️ In trang</button>
     <button class="btn btn-pdf"   onclick="savePDF()">📄 Xuất PDF</button>
   </div>
@@ -586,7 +592,9 @@ a.aic{cursor:pointer}
 
 </div>
 
-<div id="widget-grid">
+<div id="cv-columns" data-right="2">
+
+<div class="cv-col" data-col="0">
 
 <div class="widget" data-id="stats" data-size="L">
   <div class="wctrl">
@@ -598,7 +606,6 @@ a.aic{cursor:pointer}
       <button class="ws active" onclick="setWSize('stats','L')">L</button>
     </div>
   </div>
-  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
   <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card" style="padding:18px 22px">
   <div class="stats" style="margin-bottom:0">
@@ -606,6 +613,372 @@ a.aic{cursor:pointer}
     <div class="stat"><span class="si2">🏭</span><span class="sn">11+</span><span class="sl">Năm tại Sanwa VN</span></div>
     <div class="stat"><span class="si2">📋</span><span class="sn">5</span><span class="sl">Năm Giám sát SX</span></div>
   </div>
+</div>
+
+<div class="widget" data-id="lang" data-size="S">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🌍 Ngôn ngữ</span>
+    <div class="wsizes">
+      <button class="ws active" onclick="setWSize('lang','S')">S</button>
+      <button class="ws" onclick="setWSize('lang','M')">M</button>
+      <button class="ws" onclick="setWSize('lang','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(123,114,255,.12)">🌍</div><h2>Ngôn ngữ</h2></div>
+    <div class="lang-row">
+      <span class="lr-item">🇻🇳 <strong>Tiếng Việt</strong> <em>Bản ngữ</em></span>
+      <span class="lr-sep">·</span>
+      <span class="lr-item">🇬🇧 <strong>English</strong> <em>B1</em></span>
+      <span class="lr-sep">·</span>
+      <span class="lr-item">🇯🇵 <strong>日本語</strong> <em>Cơ bản</em></span>
+      <span class="lr-sep">·</span>
+      <span class="lr-item">🇰🇷 <strong>한국어</strong> <em>Cơ bản</em></span>
+    </div>
+  </div>
+</div>
+
+<div class="widget" data-id="interests" data-size="S">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🎯 Sở thích</span>
+    <div class="wsizes">
+      <button class="ws active" onclick="setWSize('interests','S')">S</button>
+      <button class="ws" onclick="setWSize('interests','M')">M</button>
+      <button class="ws" onclick="setWSize('interests','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(255,94,126,.1)">🎯</div><h2>Sở thích</h2></div>
+    <div class="int-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="ii"><span class="ii-ico">📖</span><span class="ii-n">Tiên hiệp</span></div>
+      <div class="ii"><span class="ii-ico">🔍</span><span class="ii-n">Mày mò cái mới</span></div>
+      <div class="ii"><span class="ii-ico">🤖</span><span class="ii-n">AI vào công việc</span></div>
+      <div class="ii"><span class="ii-ico">😴</span><span class="ii-n">Thích ngủ</span></div>
+      <div class="ii"><span class="ii-ico">📸</span><span class="ii-n">Chụp ảnh</span></div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="cv-col" data-col="1">
+
+<div class="widget" data-id="skills" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">⚡ Kỹ năng</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('skills','S')">S</button>
+      <button class="ws active" onclick="setWSize('skills','M')">M</button>
+      <button class="ws" onclick="setWSize('skills','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(123,114,255,.15)">⚡</div><h2>Kỹ năng chuyên môn</h2></div>
+    <div class="skills">
+      <div><div class="sk-h"><span class="sk-n">ISO 9001:2015 / IATF 16949</span><span class="sk-p">92%</span></div><div class="sk-bar"><div class="sk-f" data-w="92" style="background:var(--gp);--d:.10s"></div></div></div>
+      <div><div class="sk-h"><span class="sk-n">Xây dựng hệ thống QMS</span><span class="sk-p">88%</span></div><div class="sk-bar"><div class="sk-f" data-w="88" style="background:var(--ga);--d:.18s"></div></div></div>
+      <div><div class="sk-h"><span class="sk-n">Đánh giá nội bộ (Internal Audit)</span><span class="sk-p">87%</span></div><div class="sk-bar"><div class="sk-f" data-w="87" style="background:var(--gy);--d:.24s"></div></div></div>
+      <div><div class="sk-h"><span class="sk-n">Kiểm soát chất lượng SPC/FMEA</span><span class="sk-p">80%</span></div><div class="sk-bar"><div class="sk-f" data-w="80" style="background:var(--gr);--d:.30s"></div></div></div>
+      <div><div class="sk-h"><span class="sk-n">Lean Manufacturing / 5S / Kaizen</span><span class="sk-p">83%</span></div><div class="sk-bar"><div class="sk-f" data-w="83" style="background:var(--gp);--d:.36s"></div></div></div>
+      <div><div class="sk-h"><span class="sk-n">Quản lý sản xuất (OEE, Takt time)</span><span class="sk-p">85%</span></div><div class="sk-bar"><div class="sk-f" data-w="85" style="background:var(--ga);--d:.42s"></div></div></div>
+      <div><div class="sk-h"><span class="sk-n">ERP / SAP / Excel nâng cao</span><span class="sk-p">75%</span></div><div class="sk-bar"><div class="sk-f" data-w="75" style="background:var(--gy);--d:.48s"></div></div></div>
+      <div><div class="sk-h"><span class="sk-n">AutoCAD 2D (Bản vẽ kỹ thuật)</span><span class="sk-p">70%</span></div><div class="sk-bar"><div class="sk-f" data-w="70" style="background:var(--gr);--d:.54s"></div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="widget" data-id="edu" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🎓 Học vấn</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('edu','S')">S</button>
+      <button class="ws active" onclick="setWSize('edu','M')">M</button>
+      <button class="ws" onclick="setWSize('edu','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(255,94,126,.1)">🎓</div><h2>Học vấn</h2></div>
+    <div class="edu">
+      <div class="edu-ico">🏛️</div>
+      <div class="edu-info">
+        <h3>Kỹ sư Kỹ thuật Cơ khí</h3>
+        <div class="edu-school">ĐH Kỹ thuật Công nghiệp Thái Nguyên (TNUT)</div>
+        <div class="edu-yr">2007 – 2012</div>
+      </div>
+      <div class="edu-gpa"><div class="gn">3.0</div><div class="gl">GPA / 4.0</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="widget" data-id="certs" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🏆 Chứng chỉ</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('certs','S')">S</button>
+      <button class="ws active" onclick="setWSize('certs','M')">M</button>
+      <button class="ws" onclick="setWSize('certs','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(255,208,96,.12)">🏆</div><h2>Chứng chỉ</h2></div>
+    <div class="cert-list">
+      <div class="cert">
+        <span class="cert-ico">🎖️</span>
+        <div class="cert-info"><div class="cert-name">IATF 16949:2016 Internal Auditor</div><div class="cert-org">Sanwa Việt Nam</div></div>
+        <span class="cert-ok">Đã có</span><span class="cert-yr">04/2026</span>
+      </div>
+      <div class="cert">
+        <span class="cert-ico">✅</span>
+        <div class="cert-info"><div class="cert-name">ISO 9001:2015 Internal Auditor</div><div class="cert-org">Sanwa Việt Nam</div></div>
+        <span class="cert-ok">Đã có</span><span class="cert-yr">04/2026</span>
+      </div>
+      <div class="cert">
+        <span class="cert-ico">🌿</span>
+        <div class="cert-info"><div class="cert-name">ISO 14001:2015 Internal Auditor</div><div class="cert-org">Sanwa Việt Nam</div></div>
+        <span class="cert-ok">Đã có</span><span class="cert-yr">04/2026</span>
+      </div>
+      <div class="cert">
+        <span class="cert-ico">🛠️</span>
+        <div class="cert-info"><div class="cert-name">IATF 6 Core Tools Certificate</div><div class="cert-org">APQP · PPAP · FMEA · SPC · MSA · Control Plan</div></div>
+        <span class="cert-plan">Dự kiến</span><span class="cert-yr">08/2026</span>
+      </div>
+      <div class="cert">
+        <span class="cert-ico">🔐</span>
+        <div class="cert-info"><div class="cert-name">ISO 27001 Internal Auditor</div><div class="cert-org">Bảo mật thông tin</div></div>
+        <span class="cert-plan">Dự kiến</span><span class="cert-yr">10/2026</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="widget" data-id="goal" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🎯 Mục tiêu</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('goal','S')">S</button>
+      <button class="ws active" onclick="setWSize('goal','M')">M</button>
+      <button class="ws" onclick="setWSize('goal','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(54,245,166,.1)">🎯</div><h2>Mục tiêu nghề nghiệp</h2></div>
+    <div class="goal">
+      <div class="goal-title">🚀 Định hướng 1–2 năm tới</div>
+      <p>Từ nền tảng 11 năm tại <strong>Sanwa Việt Nam</strong>, hướng đến vị trí <strong>QMS Manager</strong> hoặc <strong>Production Manager</strong> tại doanh nghiệp FDI cơ khí / điện tử tại khu công nghiệp <strong>Bắc Ninh – Bắc Giang</strong>.<br><br>Lộ trình chứng chỉ 2026: hoàn thành <strong>6 Core Tools (08/2026)</strong> và <strong>ISO 27001 Internal Auditor (10/2026)</strong>. Ứng dụng <strong>AI vào công việc</strong> để tăng hiệu quả quản lý tài liệu và phân tích dữ liệu chất lượng.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="cv-col" data-col="2">
+
+<div class="widget" data-id="softskills" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🧠 Kỹ năng mềm</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('softskills','S')">S</button>
+      <button class="ws active" onclick="setWSize('softskills','M')">M</button>
+      <button class="ws" onclick="setWSize('softskills','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(255,208,96,.12)">🧠</div><h2>Kỹ năng mềm</h2></div>
+    <div class="radials">
+      <div class="ri">
+        <svg viewBox="0 0 88 88">
+          <circle class="rbg" cx="44" cy="44" r="33"/>
+          <circle class="rfg" cx="44" cy="44" r="33" stroke="url(#g1)" stroke-dasharray="187 207"/>
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#7B72FF"/><stop offset="100%" stop-color="#B06EFF"/></linearGradient></defs>
+          <text class="r-pct" x="44" y="41" text-anchor="middle" font-family="inherit" font-size="13" font-weight="800">90%</text>
+          <text class="r-lbl" x="44" y="54" text-anchor="middle" font-family="inherit" font-size="7">Phân tích</text>
+        </svg>
+        <div class="ri-n">Phân tích vấn đề</div>
+      </div>
+      <div class="ri">
+        <svg viewBox="0 0 88 88">
+          <circle class="rbg" cx="44" cy="44" r="33"/>
+          <circle class="rfg" cx="44" cy="44" r="33" stroke="url(#g2)" stroke-dasharray="181 207"/>
+          <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#36F5A6"/><stop offset="100%" stop-color="#00D4FF"/></linearGradient></defs>
+          <text class="r-pct" x="44" y="41" text-anchor="middle" font-family="inherit" font-size="13" font-weight="800">88%</text>
+          <text class="r-lbl" x="44" y="54" text-anchor="middle" font-family="inherit" font-size="7">Đào tạo</text>
+        </svg>
+        <div class="ri-n">Đào tạo nội bộ</div>
+      </div>
+      <div class="ri">
+        <svg viewBox="0 0 88 88">
+          <circle class="rbg" cx="44" cy="44" r="33"/>
+          <circle class="rfg" cx="44" cy="44" r="33" stroke="url(#g3)" stroke-dasharray="175 207"/>
+          <defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FFD060"/><stop offset="100%" stop-color="#FF9040"/></linearGradient></defs>
+          <text class="r-pct" x="44" y="41" text-anchor="middle" font-family="inherit" font-size="13" font-weight="800">85%</text>
+          <text class="r-lbl" x="44" y="54" text-anchor="middle" font-family="inherit" font-size="7">Lãnh đạo</text>
+        </svg>
+        <div class="ri-n">Lãnh đạo tổ SX</div>
+      </div>
+      <div class="ri">
+        <svg viewBox="0 0 88 88">
+          <circle class="rbg" cx="44" cy="44" r="33"/>
+          <circle class="rfg" cx="44" cy="44" r="33" stroke="url(#g4)" stroke-dasharray="179 207"/>
+          <defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FF5E7E"/><stop offset="100%" stop-color="#FF8060"/></linearGradient></defs>
+          <text class="r-pct" x="44" y="41" text-anchor="middle" font-family="inherit" font-size="13" font-weight="800">87%</text>
+          <text class="r-lbl" x="44" y="54" text-anchor="middle" font-family="inherit" font-size="7">Tổ chức</text>
+        </svg>
+        <div class="ri-n">Tổ chức công việc</div>
+      </div>
+      <div class="ri">
+        <svg viewBox="0 0 88 88">
+          <circle class="rbg" cx="44" cy="44" r="33"/>
+          <circle class="rfg" cx="44" cy="44" r="33" stroke="url(#g5)" stroke-dasharray="169 207"/>
+          <defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#7B72FF"/><stop offset="100%" stop-color="#36F5A6"/></linearGradient></defs>
+          <text class="r-pct" x="44" y="41" text-anchor="middle" font-family="inherit" font-size="13" font-weight="800">82%</text>
+          <text class="r-lbl" x="44" y="54" text-anchor="middle" font-family="inherit" font-size="7">Giao tiếp</text>
+        </svg>
+        <div class="ri-n">Giao tiếp</div>
+      </div>
+      <div class="ri">
+        <svg viewBox="0 0 88 88">
+          <circle class="rbg" cx="44" cy="44" r="33"/>
+          <circle class="rfg" cx="44" cy="44" r="33" stroke="url(#g6)" stroke-dasharray="173 207"/>
+          <defs><linearGradient id="g6" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#818CF8"/></linearGradient></defs>
+          <text class="r-pct" x="44" y="41" text-anchor="middle" font-family="inherit" font-size="13" font-weight="800">84%</text>
+          <text class="r-lbl" x="44" y="54" text-anchor="middle" font-family="inherit" font-size="7">Ra quyết định</text>
+        </svg>
+        <div class="ri-n">Ra quyết định</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="widget" data-id="tools" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">🛠️ Công cụ CL</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('tools','S')">S</button>
+      <button class="ws active" onclick="setWSize('tools','M')">M</button>
+      <button class="ws" onclick="setWSize('tools','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(54,245,166,.1)">🛠️</div><h2>Công cụ chất lượng & Core Tools</h2></div>
+    <div class="tool-grid" style="grid-template-columns:repeat(2,1fr)">
+      <div class="tc"><div class="tc-ico">📋</div><div class="tc-n">APQP</div><div class="tc-full">Advanced Product Quality Planning</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
+      <div class="tc"><div class="tc-ico">📦</div><div class="tc-n">PPAP</div><div class="tc-full">Production Part Approval Process</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
+      <div class="tc"><div class="tc-ico">⚠️</div><div class="tc-n">FMEA</div><div class="tc-full">Failure Mode & Effects Analysis</div><div class="stars">⭐⭐⭐⭐☆</div></div>
+      <div class="tc"><div class="tc-ico">📊</div><div class="tc-n">SPC</div><div class="tc-full">Statistical Process Control</div><div class="stars">⭐⭐⭐⭐☆</div></div>
+      <div class="tc"><div class="tc-ico">📐</div><div class="tc-n">Control Plan</div><div class="tc-full">Kế hoạch kiểm soát quá trình</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
+      <div class="tc"><div class="tc-ico">🔬</div><div class="tc-n">MSA</div><div class="tc-full">Measurement System Analysis</div><div class="stars">⭐⭐⭐☆☆</div></div>
+      <div class="tc"><div class="tc-ico">🐟</div><div class="tc-n">8D / Fishbone</div><div class="tc-full">8D Problem Solving & Ishikawa</div><div class="stars">⭐⭐⭐⭐⭐</div></div>
+      <div class="tc"><div class="tc-ico">🗺️</div><div class="tc-n">VSM / Kaizen</div><div class="tc-full">Value Stream Mapping & Cải tiến</div><div class="stars">⭐⭐⭐⭐☆</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="widget" data-id="strengths" data-size="M">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">💡 Điểm mạnh</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('strengths','S')">S</button>
+      <button class="ws active" onclick="setWSize('strengths','M')">M</button>
+      <button class="ws" onclick="setWSize('strengths','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(255,208,96,.1)">💡</div><h2>Điểm mạnh nổi bật</h2></div>
+    <div class="str-list">
+      <div class="str-item"><span class="str-check">✓</span><span class="str-text"><strong>11+ năm gắn bó Sanwa Việt Nam</strong> – am hiểu sâu văn hóa sản xuất Nhật Bản, kỷ luật công xưởng và hệ thống quản lý chất lượng nội bộ</span></div>
+      <div class="str-item"><span class="str-check">✓</span><span class="str-text">Hiểu cả 2 phía: <strong>vận hành sản xuất thực tế</strong> lẫn <strong>hệ thống ISO/IATF</strong> – lợi thế ít Giám sát nào có được</span></div>
+      <div class="str-item"><span class="str-check">✓</span><span class="str-text"><strong>Hồ sơ BHXH sạch</strong> – 12 năm 9 tháng, 0 tháng chậm đóng, thể hiện sự ổn định và uy tín nghề nghiệp</span></div>
+      <div class="str-item"><span class="str-check">✓</span><span class="str-text">Kỹ sư Cơ khí – nền tảng kỹ thuật vững chắc từ ĐH Kỹ thuật Công nghiệp Thái Nguyên, có kinh nghiệm lập kế hoạch bảo trì &amp; quyết toán từ đầu sự nghiệp</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="widget" data-id="exp" data-size="L">
+  <div class="wctrl">
+    <span class="wdrag">⠿</span>
+    <span class="wlabel">💼 Kinh nghiệm</span>
+    <div class="wsizes">
+      <button class="ws" onclick="setWSize('exp','S')">S</button>
+      <button class="ws" onclick="setWSize('exp','M')">M</button>
+      <button class="ws active" onclick="setWSize('exp','L')">L</button>
+    </div>
+  </div>
+  <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
+<div class="card">
+    <div class="sh"><div class="si" style="background:rgba(54,245,166,.12)">💼</div><h2>Kinh nghiệm làm việc</h2></div>
+    <div class="tl">
+      <div class="ti">
+        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
+        <div>
+          <div class="tt">
+            <div><div class="t-title">Phụ trách ISO 9001 / 14001 / IATF 16949</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
+            <span class="t-dt">04/2026 – Nay</span>
+          </div>
+          <p class="t-desc">Chuyên trách xây dựng, duy trì và cải tiến hệ thống quản lý tích hợp ISO 9001:2015 / ISO 14001:2015 / IATF 16949:2016. Lập kế hoạch và thực hiện đánh giá nội bộ (Internal Audit), xử lý NCR, theo dõi CAPA và chuẩn bị hồ sơ phối hợp đánh giá cấp chứng nhận bên ngoài.</p>
+          <div class="ttags"><span class="ttag">ISO 9001</span><span class="ttag">ISO 14001</span><span class="ttag">IATF 16949</span><span class="ttag">Internal Audit</span><span class="ttag">CAPA / NCR</span><span class="ttag">Document Control</span></div>
+        </div>
+      </div>
+      <div class="ti">
+        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
+        <div>
+          <div class="tt">
+            <div><div class="t-title">Giám sát Sản xuất</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
+            <span class="t-dt">01/2021 – 03/2026</span>
+          </div>
+          <p class="t-desc">Vị trí Giám sát sản xuất – cấp dưới Trưởng phòng, quản lý trực tiếp toàn bộ hoạt động ca làm việc: <strong>tính toán và lập kế hoạch sản xuất</strong> theo đơn hàng; <strong>sắp xếp nhân sự</strong>, phân công công việc phù hợp năng lực từng người; <strong>theo dõi các chỉ số</strong> sản lượng, chất lượng, OEE theo ca; <strong>điều chỉnh</strong> kịp thời khi phát sinh sự cố hoặc lệch kế hoạch. Đào tạo nhân viên mới và duy trì kỷ luật 5S.</p>
+          <div class="ttags"><span class="ttag">Giám sát SX</span><span class="ttag">Kế hoạch SX</span><span class="ttag">Quản lý nhân sự</span><span class="ttag">Phân công CV</span><span class="ttag">KPI / OEE</span><span class="ttag">5S</span></div>
+        </div>
+      </div>
+      <div class="ti">
+        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
+        <div>
+          <div class="tt">
+            <div><div class="t-title">Nhân viên Sản xuất</div><div class="t-co">🇯🇵 Cty TNHH Sản xuất Sanwa Việt Nam</div></div>
+            <span class="t-dt">09/2014 – 12/2020</span>
+          </div>
+          <p class="t-desc">Bắt đầu từ nhân viên sản xuất, làm quen và thành thạo hệ thống sản xuất Nhật Bản. Từng bước nắm vững quy trình, kỷ luật 5S và tiêu chuẩn chất lượng. Được đề bạt lên Giám sát sau 6+ năm.</p>
+          <div class="ttags"><span class="ttag">Sản xuất Nhật Bản</span><span class="ttag">5S</span><span class="ttag">Kiểm soát chất lượng</span></div>
+        </div>
+      </div>
+      <div class="ti">
+        <div class="tline"><div class="tdot"></div><div class="tcon"></div></div>
+        <div>
+          <div class="tt">
+            <div><div class="t-title">Kỹ sư Kỹ thuật</div><div class="t-co">⛏️ Cty TNHH MTV Kim loại màu Bắc Kạn</div></div>
+            <span class="t-dt">10/2012 – 09/2013</span>
+          </div>
+          <p class="t-desc">Vị trí đầu tiên sau tốt nghiệp tại nhà máy luyện kim màu. Lập kế hoạch bảo trì, bảo dưỡng định kỳ và sửa chữa lớn cho hệ thống thiết bị công nghiệp; xây dựng và quản lý hồ sơ kỹ thuật, quyết toán công trình sửa chữa theo quy định.</p>
+          <div class="ttags"><span class="ttag">Kế hoạch bảo trì</span><span class="ttag">Bảo dưỡng thiết bị</span><span class="ttag">Sửa chữa lớn</span><span class="ttag">Hồ sơ quyết toán</span><span class="ttag">Luyện kim màu</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="cv-col" data-col="3">
+
+</div>
+
 </div>
 </div>
 
@@ -619,7 +992,6 @@ a.aic{cursor:pointer}
       <button class="ws" onclick="setWSize('skills','L')">L</button>
     </div>
   </div>
-  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
   <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(123,114,255,.15)">⚡</div><h2>Kỹ năng chuyên môn</h2></div>
@@ -646,7 +1018,6 @@ a.aic{cursor:pointer}
       <button class="ws" onclick="setWSize('softskills','L')">L</button>
     </div>
   </div>
-  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
   <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(255,208,96,.12)">🧠</div><h2>Kỹ năng mềm</h2></div>
@@ -725,7 +1096,6 @@ a.aic{cursor:pointer}
       <button class="ws" onclick="setWSize('edu','L')">L</button>
     </div>
   </div>
-  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
   <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(255,94,126,.1)">🎓</div><h2>Học vấn</h2></div>
@@ -751,7 +1121,6 @@ a.aic{cursor:pointer}
       <button class="ws" onclick="setWSize('certs','L')">L</button>
     </div>
   </div>
-  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
   <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(255,208,96,.12)">🏆</div><h2>Chứng chỉ</h2></div>
@@ -795,7 +1164,6 @@ a.aic{cursor:pointer}
       <button class="ws" onclick="setWSize('lang','L')">L</button>
     </div>
   </div>
-  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
   <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(123,114,255,.12)">🌍</div><h2>Ngôn ngữ</h2></div>
@@ -821,7 +1189,6 @@ a.aic{cursor:pointer}
       <button class="ws" onclick="setWSize('tools','L')">L</button>
     </div>
   </div>
-  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
   <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(54,245,166,.1)">🛠️</div><h2>Công cụ chất lượng & Core Tools</h2></div>
@@ -848,7 +1215,6 @@ a.aic{cursor:pointer}
       <button class="ws" onclick="setWSize('interests','L')">L</button>
     </div>
   </div>
-  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
   <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(255,94,126,.1)">🎯</div><h2>Sở thích</h2></div>
@@ -872,7 +1238,6 @@ a.aic{cursor:pointer}
       <button class="ws" onclick="setWSize('goal','L')">L</button>
     </div>
   </div>
-  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
   <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(54,245,166,.1)">🎯</div><h2>Mục tiêu nghề nghiệp</h2></div>
@@ -893,7 +1258,6 @@ a.aic{cursor:pointer}
       <button class="ws" onclick="setWSize('strengths','L')">L</button>
     </div>
   </div>
-  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
   <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(255,208,96,.1)">💡</div><h2>Điểm mạnh nổi bật</h2></div>
@@ -916,7 +1280,6 @@ a.aic{cursor:pointer}
       <button class="ws active" onclick="setWSize('exp','L')">L</button>
     </div>
   </div>
-  <div class="wrh-r" title="Kéo để thay đổi chiều rộng"></div>
   <div class="wrh-b" title="Kéo để thay đổi chiều cao"></div>
 <div class="card">
     <div class="sh"><div class="si" style="background:rgba(54,245,166,.12)">💼</div><h2>Kinh nghiệm làm việc</h2></div>
@@ -1131,33 +1494,43 @@ const obs = new IntersectionObserver(entries => {
 document.querySelectorAll('.skills').forEach(el => obs.observe(el));
 window.addEventListener('load', () => setTimeout(animateBars, 400));
 
-/* ── WIDGET SYSTEM ── */
+/* ── COLUMN LAYOUT SYSTEM ── */
 let _editMode = false;
-let _dragSrc = null;
+let _dragSrc  = null;
+let _rightCols = 2;
 
-function _colsForSize(size) {
-  return size === 'S' ? 1 : size === 'L' ? 4 : 2;
-}
+function _getColumns() { return document.getElementById('cv-columns'); }
 
-function _applyWidgetCols(w) {
-  const cols = parseInt(w.dataset.cols) || _colsForSize(w.dataset.size || 'M');
-  w.style.gridColumn = 'span ' + cols;
+function setRightCols(n) {
+  _rightCols = n;
+  const cols = _getColumns();
+  if (!cols) return;
+  cols.setAttribute('data-right', n);
+  /* move widgets from hidden columns to last visible column */
+  const lastVisible = cols.querySelector('.cv-col[data-col="' + n + '"]');
+  if (!lastVisible) return;
+  for (let ci = n + 1; ci <= 3; ci++) {
+    const hiddenCol = cols.querySelector('.cv-col[data-col="' + ci + '"]');
+    if (hiddenCol) [...hiddenCol.querySelectorAll('.widget')].forEach(w => lastVisible.appendChild(w));
+  }
+  document.querySelectorAll('.rcbtn').forEach(b => b.classList.toggle('active', parseInt(b.dataset.n) === n));
+  saveWidgets();
 }
 
 function toggleEditMode() {
   _editMode = !_editMode;
-  const grid = document.getElementById('widget-grid');
+  const cols = _getColumns();
   const btn  = document.getElementById('edit-btn');
   if (_editMode) {
-    grid.classList.add('edit-mode');
+    cols.classList.add('edit-mode');
     btn.textContent = '✓ Xong';
     btn.style.background = 'var(--ga)'; btn.style.color = '#fff';
-    grid.querySelectorAll('.widget').forEach(w => w.setAttribute('draggable','true'));
+    cols.querySelectorAll('.widget').forEach(w => w.setAttribute('draggable','true'));
   } else {
-    grid.classList.remove('edit-mode');
+    cols.classList.remove('edit-mode');
     btn.textContent = '⠿ Sắp xếp';
     btn.style.background = ''; btn.style.color = '';
-    grid.querySelectorAll('.widget').forEach(w => w.setAttribute('draggable','false'));
+    cols.querySelectorAll('.widget').forEach(w => w.setAttribute('draggable','false'));
     saveWidgets();
   }
 }
@@ -1166,62 +1539,50 @@ function setWSize(id, size) {
   const w = document.querySelector('.widget[data-id="' + id + '"]');
   if (!w) return;
   w.setAttribute('data-size', size);
-  const cols = _colsForSize(size);
-  w.dataset.cols = cols;
-  w.style.gridColumn = 'span ' + cols;
   w.querySelectorAll('.ws').forEach(b => b.classList.toggle('active', b.textContent === size));
   saveWidgets();
 }
 
 function saveWidgets() {
-  const data = [...document.querySelectorAll('#widget-grid .widget')].map(w => {
-    const card = w.querySelector('.card');
-    return {
-      id: w.dataset.id,
-      size: w.dataset.size,
-      cols: w.dataset.cols || null,
-      mh: w.dataset.mh || null
-    };
-  });
-  try { localStorage.setItem('cv-widgets', JSON.stringify(data)); } catch(e) {}
+  const colData = [...document.querySelectorAll('#cv-columns .cv-col')].map(col => ({
+    col: col.dataset.col,
+    widgets: [...col.querySelectorAll(':scope > .widget')].map(w => ({
+      id: w.dataset.id, size: w.dataset.size, mh: w.dataset.mh || null
+    }))
+  }));
+  try { localStorage.setItem('cv-layout2', JSON.stringify({right: _rightCols, cols: colData})); } catch(e) {}
 }
 
 function loadWidgets() {
   try {
-    const data = JSON.parse(localStorage.getItem('cv-widgets') || 'null');
-    const grid = document.getElementById('widget-grid');
-    if (!data) {
-      grid.querySelectorAll('.widget').forEach(w => _applyWidgetCols(w));
-      return;
-    }
-    data.forEach(item => {
-      const w = document.querySelector('.widget[data-id="' + item.id + '"]');
-      if (!w) return;
-      w.setAttribute('data-size', item.size);
-      const cols = item.cols ? parseInt(item.cols) : _colsForSize(item.size);
-      w.dataset.cols = cols;
-      w.style.gridColumn = 'span ' + cols;
-      if (item.mh) {
-        w.dataset.mh = item.mh;
-        const card = w.querySelector('.card');
-        if (card) card.style.minHeight = item.mh + 'px';
-      }
-      w.querySelectorAll('.ws').forEach(b => b.classList.toggle('active', b.textContent === item.size));
-      grid.appendChild(w);
+    const data = JSON.parse(localStorage.getItem('cv-layout2') || 'null');
+    if (!data) return;
+    _rightCols = data.right || 2;
+    const cont = _getColumns();
+    if (!cont) return;
+    cont.setAttribute('data-right', _rightCols);
+    document.querySelectorAll('.rcbtn').forEach(b => b.classList.toggle('active', parseInt(b.dataset.n) === _rightCols));
+    (data.cols || []).forEach(colData => {
+      const col = cont.querySelector('.cv-col[data-col="' + colData.col + '"]');
+      if (!col) return;
+      (colData.widgets || []).forEach(item => {
+        const w = document.querySelector('.widget[data-id="' + item.id + '"]');
+        if (!w) return;
+        w.setAttribute('data-size', item.size || 'M');
+        if (item.mh) { w.dataset.mh = item.mh; const card = w.querySelector('.card'); if (card) card.style.minHeight = item.mh + 'px'; }
+        w.querySelectorAll('.ws').forEach(b => b.classList.toggle('active', b.textContent === (item.size || 'M')));
+        col.appendChild(w);
+      });
     });
-    /* apply cols for any widgets not in saved data */
-    grid.querySelectorAll('.widget').forEach(w => { if (!w.style.gridColumn) _applyWidgetCols(w); });
-  } catch(e) {
-    document.querySelectorAll('#widget-grid .widget').forEach(w => _applyWidgetCols(w));
-  }
+  } catch(e) {}
 }
 
-(function initWidgetDrag() {
-  const grid = document.getElementById('widget-grid');
-  if (!grid) return;
+(function initDrag() {
+  const cont = _getColumns();
+  if (!cont) return;
 
-  grid.addEventListener('dragstart', e => {
-    if (e.target.closest('.wrh-r,.wrh-b')) { e.preventDefault(); return; }
+  cont.addEventListener('dragstart', e => {
+    if (e.target.closest('.wrh-b')) { e.preventDefault(); return; }
     const w = e.target.closest('.widget');
     if (!w || !_editMode) { e.preventDefault(); return; }
     _dragSrc = w;
@@ -1229,90 +1590,73 @@ function loadWidgets() {
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/plain', w.dataset.id);
   });
-  grid.addEventListener('dragend', e => {
+
+  cont.addEventListener('dragend', e => {
     const w = e.target.closest('.widget');
     if (w) w.classList.remove('dragging');
-    grid.querySelectorAll('.widget').forEach(x => x.classList.remove('drag-over'));
+    cont.querySelectorAll('.drag-over,.col-drag-over').forEach(x => x.classList.remove('drag-over','col-drag-over'));
     _dragSrc = null;
   });
-  grid.addEventListener('dragover', e => {
-    if (e.target.closest('.wrh-r,.wrh-b')) return;
+
+  cont.addEventListener('dragover', e => {
+    if (!_dragSrc) return;
     e.preventDefault(); e.dataTransfer.dropEffect = 'move';
-    const w = e.target.closest('.widget');
-    if (w && w !== _dragSrc) {
-      grid.querySelectorAll('.widget').forEach(x => x.classList.remove('drag-over'));
-      w.classList.add('drag-over');
+    cont.querySelectorAll('.drag-over,.col-drag-over').forEach(x => x.classList.remove('drag-over','col-drag-over'));
+    const targetW = e.target.closest('.widget');
+    const targetC = e.target.closest('.cv-col');
+    if (targetW && targetW !== _dragSrc) targetW.classList.add('drag-over');
+    else if (targetC) targetC.classList.add('col-drag-over');
+  });
+
+  cont.addEventListener('dragleave', e => {
+    if (!cont.contains(e.relatedTarget)) {
+      cont.querySelectorAll('.drag-over,.col-drag-over').forEach(x => x.classList.remove('drag-over','col-drag-over'));
     }
   });
-  grid.addEventListener('dragleave', e => {
-    const w = e.target.closest('.widget');
-    if (w && !w.contains(e.relatedTarget)) w.classList.remove('drag-over');
-  });
-  grid.addEventListener('drop', e => {
+
+  cont.addEventListener('drop', e => {
     e.preventDefault();
-    const target = e.target.closest('.widget');
-    if (!target || !_dragSrc || target === _dragSrc) return;
-    const widgets = [...grid.children].filter(c => c.classList.contains('widget'));
-    const si = widgets.indexOf(_dragSrc), ti = widgets.indexOf(target);
-    grid.insertBefore(_dragSrc, si < ti ? target.nextSibling : target);
-    target.classList.remove('drag-over');
+    cont.querySelectorAll('.drag-over,.col-drag-over').forEach(x => x.classList.remove('drag-over','col-drag-over'));
+    if (!_dragSrc) return;
+    const targetW = e.target.closest('.widget');
+    const targetC = e.target.closest('.cv-col');
+    if (!targetC) return;
+    if (targetW && targetW !== _dragSrc) {
+      /* insert before/after target widget based on mouse Y */
+      const rect = targetW.getBoundingClientRect();
+      const before = e.clientY < rect.top + rect.height / 2;
+      targetC.insertBefore(_dragSrc, before ? targetW : targetW.nextSibling);
+    } else {
+      targetC.appendChild(_dragSrc);
+    }
     saveWidgets();
   });
 })();
 
-(function initResizeDrag() {
-  const grid = document.getElementById('widget-grid');
-  if (!grid) return;
-
-  grid.addEventListener('mousedown', function(e) {
-    if (!_editMode) return;
-    const isRight  = !!e.target.closest('.wrh-r');
-    const isBottom = !!e.target.closest('.wrh-b');
-    if (!isRight && !isBottom) return;
-
-    e.stopPropagation();
-    e.preventDefault();
-
+/* Height resize via bottom handle */
+(function initHeightResize() {
+  const cont = _getColumns();
+  if (!cont) return;
+  cont.addEventListener('mousedown', function(e) {
+    if (!_editMode || !e.target.closest('.wrh-b')) return;
+    e.stopPropagation(); e.preventDefault();
     const widget = e.target.closest('.widget');
-    const card   = widget.querySelector('.card');
-
-    if (isRight) {
-      const startX    = e.clientX;
-      const startRight = widget.getBoundingClientRect().right;
-      const onMove = function(me) {
-        const gridRect = grid.getBoundingClientRect();
-        const gap = 14;
-        const colW = (gridRect.width - 3 * gap) / 4;
-        const newRight = startRight + (me.clientX - startX);
-        const newWidth = newRight - widget.getBoundingClientRect().left;
-        const newCols  = Math.max(1, Math.min(4, Math.round(newWidth / (colW + gap / 4))));
-        widget.style.gridColumn = 'span ' + newCols;
-        widget.dataset.cols = newCols;
-      };
-      const onUp = function() {
-        document.removeEventListener('mousemove', onMove);
-        document.removeEventListener('mouseup', onUp);
-        saveWidgets();
-      };
-      document.addEventListener('mousemove', onMove);
-      document.addEventListener('mouseup', onUp);
-
-    } else {
-      const startY = e.clientY;
-      const startH = card ? card.getBoundingClientRect().height : 100;
-      const onMove = function(me) {
-        const newH = Math.max(60, startH + (me.clientY - startY));
-        if (card) card.style.minHeight = newH + 'px';
-        widget.dataset.mh = Math.round(newH);
-      };
-      const onUp = function() {
-        document.removeEventListener('mousemove', onMove);
-        document.removeEventListener('mouseup', onUp);
-        saveWidgets();
-      };
-      document.addEventListener('mousemove', onMove);
-      document.addEventListener('mouseup', onUp);
-    }
+    const card = widget ? widget.querySelector('.card') : null;
+    if (!card) return;
+    const startY = e.clientY;
+    const startH = card.getBoundingClientRect().height;
+    const onMove = function(me) {
+      const newH = Math.max(60, startH + (me.clientY - startY));
+      card.style.minHeight = newH + 'px';
+      widget.dataset.mh = Math.round(newH);
+    };
+    const onUp = function() {
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+      saveWidgets();
+    };
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
   });
 })();
 
@@ -1396,7 +1740,27 @@ loadWidgets();
 .pfoot{margin-top:5pt;border-top:1pt solid #E2E8F0;padding-top:3pt;display:flex;justify-content:space-between;font-size:6pt;color:#CBD5E1}
 
 /* ═══ WIDGET GRID SYSTEM ═══ */
-#widget-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;align-items:start;margin-bottom:0}
+/* ═══ COLUMN LAYOUT SYSTEM ═══ */
+#cv-columns{display:flex;gap:16px;align-items:start;margin-bottom:0}
+.cv-col{flex:1;display:flex;flex-direction:column;gap:14px;min-width:0}
+
+/* Hide extra right columns based on data-right */
+#cv-columns[data-right="1"] .cv-col[data-col="2"],
+#cv-columns[data-right="1"] .cv-col[data-col="3"],
+#cv-columns[data-right="2"] .cv-col[data-col="3"]{display:none}
+
+/* Right-column count buttons */
+.rcols-ctrl{display:flex;align-items:center;gap:4px}
+.rcbtn{
+  width:24px;height:24px;border-radius:6px;border:1.5px solid var(--border);
+  background:var(--surface);font-size:11px;font-weight:800;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--sub);transition:all .15s;
+}
+.rcbtn.active{background:var(--p1);color:#fff;border-color:var(--p1)}
+.rcbtn:hover:not(.active){border-color:var(--p1);color:var(--p1)}
+
+/* Widget */
 .widget{position:relative;transition:opacity .2s}
 
 /* Widget control bar */
@@ -1418,12 +1782,8 @@ loadWidgets();
 .ws.active{background:var(--p1);color:#fff;border-color:var(--p1)}
 .ws:hover:not(.active){border-color:var(--p1);color:var(--p1)}
 
-/* Resize handles */
-.wrh-r,.wrh-b{position:absolute;display:none;z-index:150}
-.wrh-r{right:-6px;top:10%;bottom:10%;width:12px;cursor:col-resize}
-.wrh-b{left:10%;right:10%;bottom:-6px;height:12px;cursor:row-resize}
-.wrh-r::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  width:4px;height:32px;border-radius:3px;background:var(--p1);opacity:.75}
+/* Height resize handle */
+.wrh-b{position:absolute;left:10%;right:10%;bottom:-6px;height:12px;cursor:row-resize;display:none;z-index:150}
 .wrh-b::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   height:4px;width:32px;border-radius:3px;background:var(--p1);opacity:.75}
 
@@ -1432,21 +1792,24 @@ loadWidgets();
   0%  {transform:rotate(-1.2deg) scale(1.005)}
   100%{transform:rotate(1.2deg)  scale(1.005)}
 }
-#widget-grid.edit-mode .widget{
+#cv-columns.edit-mode .widget{
   animation:jiggle .22s ease-in-out infinite alternate;
   cursor:grab;
 }
-#widget-grid.edit-mode .widget:active{cursor:grabbing}
-#widget-grid.edit-mode .wctrl{display:flex}
-#widget-grid.edit-mode .wrh-r,
-#widget-grid.edit-mode .wrh-b{display:block}
-#widget-grid.edit-mode .widget.dragging{opacity:.35;animation:none}
-#widget-grid.edit-mode .widget.drag-over > .card,
-#widget-grid.edit-mode .widget.drag-over > div:not(.wctrl):not(.wrh-r):not(.wrh-b){
+#cv-columns.edit-mode .widget:active{cursor:grabbing}
+#cv-columns.edit-mode .wctrl{display:flex}
+#cv-columns.edit-mode .wrh-b{display:block}
+#cv-columns.edit-mode .widget.dragging{opacity:.35;animation:none}
+#cv-columns.edit-mode .cv-col.col-drag-over{
+  background:rgba(123,114,255,.06);
+  outline:2px dashed var(--p1);border-radius:14px;
+}
+#cv-columns.edit-mode .widget.drag-over > .card,
+#cv-columns.edit-mode .widget.drag-over > div:not(.wctrl):not(.wrh-b){
   outline:2px dashed var(--p1);border-radius:16px;
 }
 
-/* S size: compact view */
+/* S size: compact */
 .widget[data-size="S"] .card{padding:14px 16px}
 .widget[data-size="S"] .sk-bar{display:none}
 .widget[data-size="S"] .sk-p{display:none}
@@ -1473,20 +1836,20 @@ loadWidgets();
 .widget[data-size="S"] .sh h2{font-size:10px}
 
 /* L size: expanded */
-.widget[data-size="L"] .radials{grid-template-columns:repeat(6,1fr)}
-.widget[data-size="L"] .tool-grid{grid-template-columns:repeat(4,1fr)!important}
-.widget[data-size="L"] .int-grid{grid-template-columns:repeat(5,1fr)!important}
+.widget[data-size="L"] .radials{grid-template-columns:repeat(3,1fr)}
+.widget[data-size="L"] .tool-grid{grid-template-columns:repeat(2,1fr)!important}
+.widget[data-size="L"] .int-grid{grid-template-columns:repeat(3,1fr)!important}
 .widget[data-size="L"] .stats{grid-template-columns:repeat(3,1fr)}
 .widget[data-size="L"] .skills{gap:12px}
 
 /* Responsive */
-@media(max-width:900px){
-  #widget-grid{grid-template-columns:repeat(2,1fr)}
-  .wrh-r{display:none!important}
-}
-@media(max-width:540px){
-  #widget-grid{grid-template-columns:1fr}
-  .wrh-r,.wrh-b{display:none!important}
+@media(max-width:800px){
+  #cv-columns{flex-direction:column}
+  .cv-col{width:100%}
+  #cv-columns[data-right="1"] .cv-col[data-col="2"],
+  #cv-columns[data-right="1"] .cv-col[data-col="3"],
+  #cv-columns[data-right="2"] .cv-col[data-col="3"]{display:flex}
+  .wrh-b{display:none!important}
 }
 
 </style>
